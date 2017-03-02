@@ -111,13 +111,13 @@
 <h2 id="五、用组件构建（应用）"><a href="#五、用组件构建（应用）" class="headerlink" title="五、用组件构建（应用）"></a>五、用组件构建（应用）</h2><p>在Vue中，一个组件实质上是一个拥有预定义选项的一个Vue实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	template:&apos;&lt;li&gt;This is a todo&lt;/li&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>然后我们就可以在另一个组件模板中写入它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;ol&gt;</div><div class="line">  &lt;todo-item&gt;&lt;/todo-item&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure></p>
 <p>但是此时所有的子组件全都具有相同的文本，操作起来不是太好，我们应该将数据从父作用域传到子组件。那么我们添加一个prop字段，表示属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	props:[&apos;todo&apos;],</div><div class="line">	template:&apos;&lt;li&gt;This is a todo&lt;/li&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>现在，我们可以使用v-bind指令将todo传到每一个重复的组件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;todo-item v-for=&quot;item in groceryList&quot; v-bind:todo=&quot;item&quot;&gt;&lt;/todo-item&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">Vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	props:[&apos;todo&apos;],</div><div class="line">    template:&apos;&lt;li&gt;&#123;&#123;todo.text&#125;&#125;&lt;/li&gt;&apos;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#example&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	groceryList:[</div><div class="line">        	&#123; text: &apos;Vegetables&apos; &#125;,</div><div class="line">      		&#123; text: &apos;Cheese&apos; &#125;,</div><div class="line">     		&#123; text: &apos;Whatever else humans are supposed to eat&apos; &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>现在，我们可以使用v-bind指令将todo传到每一个重复的组件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;todo-item v-for=&quot;item in groceryList&quot; v-bind:todo=&quot;item&quot;&gt;&lt;/todo-item&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">Vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	props:[&apos;todo&apos;],</div><div class="line">    template:&apos;&lt;li&gt;&#123;&#123;todo.text&#125;&#125;&lt;/li&gt;&apos;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#example&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	groceryList:[</div><div class="line">        	&#123; text: &apos;Vegetables&apos; &#125;,</div><div class="line">      		&#123; text: &apos;Cheese&apos; &#125;,</div><div class="line">     		&#123; text: &apos;Whatever else humans are supposed to eat&apos; &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.Vegetables</div><div class="line">2.Cheese</div><div class="line">3.Whatever else humans are supposed to eat</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizsh2xdm0003a0o0p4kvzaeo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizsh7v3100053so086v0k65r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizsh2xe50005a0o0pqviejfx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizsh7v2y00033so04g73x984" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizsh2xe20004a0o039m2u44x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizsh7v2z00043so0ur5jzn9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -306,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizsh2xc50000a0o03zuh5i3i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizsh7v2t00013so0lu2w56eg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +364,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizsh2xca0001a0o0qo72du6k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizsh7v2o00003so0exh57tsy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +452,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizsh2xdj0002a0o0mn4tpcio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizsh7v2v00023so0f7s39c7j" class="article-share-link">Share</a>
       
       
     </footer>

@@ -28,7 +28,7 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -41,30 +41,34 @@
       <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">Jessionlin&#39;s blog</a>
       </h1>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
     </div>
   </div>
 </header>
@@ -91,6 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+        
         <h1 id="vuejs-基本操作"><a href="#vuejs-基本操作" class="headerlink" title="vuejs 基本操作"></a>vuejs 基本操作</h1><h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>1.在本地创建一个HTML文件，然后直接引用vue.js文件<br> <code>&lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code><br>2.在node环境下可以直接用<br> <code>npm install vue-cli</code> 但是这种方式并不推荐使用，尤其是多nodejs构建工具不够了解的同学</p>
 <h2 id="二、渲染"><a href="#二、渲染" class="headerlink" title="二、渲染"></a>二、渲染</h2><p>1.声明式渲染<br>Vue.js简单地说就是创建一个简洁的模板来声明式的将数据渲染进DOM的系统：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">&#123;&#123;message&#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#app&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	message:&apos;Hello Vue!&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -122,7 +128,8 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizv18iqs0005ywo0t7vllyru" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizv1n78p0005sco067b5m6ug" class="article-share-link">分享</a>
+      
       
       
     </footer>
@@ -132,7 +139,7 @@
 <nav id="article-nav">
   
     <a href="/2017/03/04/vue事件处理器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           vue事件处理器
@@ -142,7 +149,7 @@
   
   
     <a href="/2017/03/01/node配置与安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">node配置与安装</div>
     </a>
   
@@ -152,102 +159,85 @@
 </article>
 
 
-
-  
-<section id="comment">  
-  <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key=" post " data-title=" vuejs 基本操作 " data-url=" http://yoursite.com/2017/03/02/vuejs-基本操作/ "></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"jessionlin1"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->  
-</section>  
-  </section>
-        
-          <aside id="sidebar">
+</section>
+           
+    <aside id="sidebar">
   
     
 
   
     
-
-  
+    <div class="widget-wrap">
     
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vuejs-基本操作"><span class="toc-number">1.</span> <span class="toc-text">vuejs 基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、渲染"><span class="toc-number">1.2.</span> <span class="toc-text">二、渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、条件与循环"><span class="toc-number">1.3.</span> <span class="toc-text">三、条件与循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、处理用户输入"><span class="toc-number">1.4.</span> <span class="toc-text">四、处理用户输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、用组件构建（应用）"><span class="toc-number">1.5.</span> <span class="toc-text">五、用组件构建（应用）</span></a></li></ol></li></ol>
+          </div>
+      </div>
     </div>
-  </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
 
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/04/用CSS画出三角形/">用CSS画出三角形</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/04/vue事件处理器/">vue事件处理器</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/02/vuejs-基本操作/">vuejs 基本操作</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/node配置与安装/">node配置与安装</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/mongodb基本操作方法/">mongodb基本操作方法</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+
+  
+    
 
   
 </aside>
-        
+
       </div>
       <footer id="footer">
   
   <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 jessionlin<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div id="footer-left">
+      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>
+ <script src="/jquery/jquery.min.js"></script>
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
   
 </nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+ <script src="/js/is.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -255,7 +245,7 @@ var duoshuoQuery = {short_name:"jessionlin1"};
 
 
 <script src="/js/script.js"></script>
-
+<script src="/js/elevator.js"></script>
   </div>
 </body>
 </html>

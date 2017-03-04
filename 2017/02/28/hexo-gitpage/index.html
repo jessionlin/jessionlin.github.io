@@ -25,7 +25,7 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -38,30 +38,34 @@
       <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">Jessionlin&#39;s blog</a>
       </h1>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
     </div>
   </div>
 </header>
@@ -88,6 +92,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+        
         <h1 id="Hexo-gitpage搭建个人博客"><a href="#Hexo-gitpage搭建个人博客" class="headerlink" title="Hexo + gitpage搭建个人博客"></a>Hexo + gitpage搭建个人博客</h1><p>在学习编程的过程中，难免会遇到很多很多不会解决的bug，网上查询资料时往往会看到很多大神在自己的博客中对自己的问题进行了详细的讲解，心里常常想，什么时候才能搭建一个属于自己的博客。现在，仅仅使用hexo和gitpage我们就可以搭建一个简易的静态博客，是不是很神奇，那我们现在就开始吧</p>
 <h6 id="注：此处默认大家已经安装配置好了合适的node环境和git环境"><a href="#注：此处默认大家已经安装配置好了合适的node环境和git环境" class="headerlink" title="注：此处默认大家已经安装配置好了合适的node环境和git环境"></a>注：此处默认大家已经安装配置好了合适的node环境和git环境</h6><h3 id="一、hexo安装与使用"><a href="#一、hexo安装与使用" class="headerlink" title="一、hexo安装与使用"></a>一、hexo安装与使用</h3><p><strong>1.hexo安装</strong><br>    搜索 <a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>你会发现有许多和hexo有关的包，这里我们选用npm-cli这个包，在命令行中打印<br>    <code>npm install npm-cli -g</code><br><strong>2.hexo使用</strong><br>    首先初始化hexo<br>    <code>hexo init projectName</code></p>
 <pre><code>安装好了当然就要开始使用了，不过我们在此之前先要大概了解一下每个目录是做什么的
@@ -114,7 +120,8 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizv18iqb0000ywo0clbxrs4u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizv1n78j0002sco054r81q4u" class="article-share-link">分享</a>
+      
       
       
     </footer>
@@ -124,7 +131,7 @@ k. *package.json*文件在node中已介绍
 <nav id="article-nav">
   
     <a href="/2017/02/28/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Hello World
@@ -134,7 +141,7 @@ k. *package.json*文件在node中已介绍
   
   
     <a href="/2017/02/27/markdown-基本用法/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">markdown 基本用法</div>
     </a>
   
@@ -144,102 +151,85 @@ k. *package.json*文件在node中已介绍
 </article>
 
 
-
-  
-<section id="comment">  
-  <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key=" post " data-title=" hexo+gitpage " data-url=" http://yoursite.com/2017/02/28/hexo-gitpage/ "></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"jessionlin1"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->  
-</section>  
-  </section>
-        
-          <aside id="sidebar">
+</section>
+           
+    <aside id="sidebar">
   
     
 
   
     
-
-  
+    <div class="widget-wrap">
     
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-gitpage搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">Hexo + gitpage搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：此处默认大家已经安装配置好了合适的node环境和git环境"><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">注：此处默认大家已经安装配置好了合适的node环境和git环境</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、hexo安装与使用"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、hexo安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：source文件夹中只能存储md文件，媒体格式的图片页面中无法显示，媒体的显示方法见下文"><span class="toc-number">1.0.1.0.0.1.</span> <span class="toc-text">注：source文件夹中只能存储md文件，媒体格式的图片页面中无法显示，媒体的显示方法见下文</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、gitpage配置"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、gitpage配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、部署"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、部署</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：在部署的时候，经常会出现错误，下面我把我遇到的坑总结一下"><span class="toc-number">1.0.3.0.0.1.</span> <span class="toc-text">注：在部署的时候，经常会出现错误，下面我把我遇到的坑总结一下</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-命令行中输入hexo-d没有任何反应，原因是你没有安装所需要的依赖"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">1.命令行中输入hexo d没有任何反应，原因是你没有安装所需要的依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-无法找到命令"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">2.无法找到命令</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：type等跟着的冒号后面需要有一个半角英文空格，否则会报错"><span class="toc-number">1.0.3.0.2.1.</span> <span class="toc-text">注：type等跟着的冒号后面需要有一个半角英文空格，否则会报错</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+          </div>
+      </div>
     </div>
-  </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
 
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/04/用CSS画出三角形/">用CSS画出三角形</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/04/vue事件处理器/">vue事件处理器</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/02/vuejs-基本操作/">vuejs 基本操作</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/node配置与安装/">node配置与安装</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/mongodb基本操作方法/">mongodb基本操作方法</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+
+  
+    
 
   
 </aside>
-        
+
       </div>
       <footer id="footer">
   
   <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 jessionlin<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div id="footer-left">
+      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>
+ <script src="/jquery/jquery.min.js"></script>
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
   
 </nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+ <script src="/js/is.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -247,7 +237,7 @@ var duoshuoQuery = {short_name:"jessionlin1"};
 
 
 <script src="/js/script.js"></script>
-
+<script src="/js/elevator.js"></script>
   </div>
 </body>
 </html>

@@ -16,6 +16,10 @@
 <meta name="twitter:title" content="vue事件处理器">
 <meta name="twitter:description" content="事件处理器1.监听事件可以用v-on指令监听DOM事件来触发一些JavaScript代码示例：12345//HTML&amp;lt;div id=&amp;quot;example-1&amp;quot;&amp;gt;  &amp;lt;button v-on:click=&amp;quot;counter += 1&amp;quot;&amp;gt;增加 1&amp;lt;/button&amp;gt;  &amp;lt;p&amp;gt;这个按钮被点击了 &amp;#123;&amp;#123; co">
   
+    <link rel="alternate" href="/atom.xml" title="Jessionlin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
   
     
@@ -35,13 +39,21 @@
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
         
       </nav>
       
@@ -100,7 +112,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizv2bbou0005sco04km3byzw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizv2iil800065co05giswxls" class="article-share-link">分享</a>
+      
+        <a href="http://yoursite.com/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -111,7 +125,7 @@
 <nav id="article-nav">
   
     <a href="/2017/03/04/用CSS画出三角形/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           用CSS画出三角形
@@ -121,7 +135,7 @@
   
   
     <a href="/2017/03/02/vuejs-基本操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">vuejs 基本操作</div>
     </a>
   
@@ -130,25 +144,73 @@
   
 </article>
 
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/03/04/vue事件处理器/" data-title="vue事件处理器" data-url="http://yoursite.com/2017/03/04/vue事件处理器/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
 
 </section>
            
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理器"><span class="toc-number">1.</span> <span class="toc-text">事件处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-监听事件"><span class="toc-number">1.1.</span> <span class="toc-text">1.监听事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法事件处理器"><span class="toc-number">1.2.</span> <span class="toc-text">2.方法事件处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-内联处理器方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.内联处理器方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-事件修饰符"><span class="toc-number">1.4.</span> <span class="toc-text">4.事件修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-按键修饰符"><span class="toc-number">1.5.</span> <span class="toc-text">5.按键修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-使用v-on的好处"><span class="toc-number">1.6.</span> <span class="toc-text">6.使用v-on的好处</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
       </div>
       <footer id="footer">
   
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
-      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;http://yoursite.com
+      联系方式&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>
  <script src="/jquery/jquery.min.js"></script>
     </div>
     <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
   
 </nav>
     <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
@@ -165,9 +227,17 @@ window.onload = function() {
     
 
 
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"jessionlin1"};
+      </script>
+      <script src="/duoshuo/embed.js"></script>
+
 
  <script src="/js/is.js"></script>
 
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="/js/script.js"></script>

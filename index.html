@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,59 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-用CSS画出三角形" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/04/用CSS画出三角形/" class="article-date">
+  <time datetime="2017-03-04T08:22:15.000Z" itemprop="datePublished">2017-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/04/用CSS画出三角形/">用CSS画出三角形</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="用CSS画出三角形的效果"><a href="#用CSS画出三角形的效果" class="headerlink" title="用CSS画出三角形的效果"></a>用CSS画出三角形的效果</h1><p>随着css3.0的出现，我们可以画出越来越多比较新颖的图形，这里我介绍一下用css3画出三角形。<br>首先我们给个div<br><code>&lt;div id=&quot;triangle&quot;&gt;&lt;/div&gt;</code><br>下面就是我们的css代码，<br>先看个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width:100px;</div><div class="line">    height:100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果如下：<br><img src="http://om4k2r3sl.bkt.clouddn.com/triangle.png" alt="alt text" title="rect"></p>
+<p>很简单，然后呢，我们加上边框<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	border-left: 50px solid red;</div><div class="line">	border-right: 50px solid yellow;</div><div class="line">	border-top: 50px solid gold;</div><div class="line">	border-bottom: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果如下</p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle2.png" alt="alt text" title="rect?"><br>好像有奇迹了，如果我把div的宽高都设置为0，图像是否就会显示成四个三角形构成一个正方形，试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-left: 50px solid red;</div><div class="line">	border-right: 50px solid yellow;</div><div class="line">	border-top: 50px solid gold;</div><div class="line">	border-bottom: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>见证奇迹的时刻：<br><img src="http://om4k2r3sl.bkt.clouddn.com/triangle3.png" alt="alt text" title="triangle"></p>
+<p>不过现在有了四个三角形，如果我们只要一个三角形的话怎么办？试着减一个边框看看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-left: 50px solid red;</div><div class="line">	border-right: 50px solid yellow;</div><div class="line">	border-bottom: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle4.png" alt="alt text" title="triangle2"></p>
+<p>少了一个三角形，那么如果我取消另外两个边框会怎么样？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-bottom: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/blank.png" alt="alt text" title="blank"><br>咦！怎么什么都没有，看来所有两个边界属性都删除是不行的，那如果我把它们隐藏呢：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-left: 50px solid transparent;</div><div class="line">	border-right: 50px solid transparent;</div><div class="line">	border-bottom: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle-up.png" alt="alt text" title="triangle-up"><br>上三角形就出现了，我们还可以写出其他三个方向的三角形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-left: 50px solid transparent;</div><div class="line">	border-right: 50px solid transparent;</div><div class="line">	border-top: 50px solid purple;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle-down.png" alt="alt text" title="triangle-down"><br>下三角形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-left: 50px solid red;</div><div class="line">	border-bottom: 50px solid transparent;</div><div class="line">	border-top: 50px solid transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle-right.png" alt="alt text" title="triangle-right"><br>右三角形</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#triangle&#123;</div><div class="line">	width: 0px;</div><div class="line">	height: 0px;</div><div class="line">	border-right: 50px solid red;</div><div class="line">	border-bottom: 50px solid transparent;</div><div class="line">	border-top: 50px solid transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/triangle-left.png" alt="alt text" title="triangle-right"><br>左三角形</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/04/用CSS画出三角形/" data-id="cizv0lte60007r0o064sm6dk7" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
   
     <article id="post-vue事件处理器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -107,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizuyrj9o00019wo0522skwhk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizv0lte00005r0o012i3e88h" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -172,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizuyrjb100049wo0yu7ax2o6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizv0lte40006r0o0jpegj0iu" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -231,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizuyrjad00039wo0gcmbdhff" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizv0ltdy0003r0o0tzmbtdrv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -320,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizuyrjbc00069wo0ov7r8p8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizv0ltdz0004r0o0rh7xfrhk" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -367,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizuyrj6u00009wo0ekwg35sv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizv0ltdo0000r0o0hp3tfcwr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -427,7 +480,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizuyrja800029wo061mt0z2l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizv0ltdt0001r0o09fykgexv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -517,7 +570,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizuyrjb700059wo02r7thuwr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizv0ltdw0002r0o0sm8iscun" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -554,9 +607,13 @@ k. *package.json*文件在node中已介绍
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/04/用CSS画出三角形/">用CSS画出三角形</a>
+          </li>
         
           <li>
             <a href="/2017/03/04/vue事件处理器/">vue事件处理器</a>
@@ -574,10 +631,6 @@ k. *package.json*文件在node中已介绍
             <a href="/2017/03/01/mongodb基本操作方法/">mongodb基本操作方法</a>
           </li>
         
-          <li>
-            <a href="/2017/02/28/hello-world/">Hello World</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -591,7 +644,7 @@ k. *package.json*文件在node中已介绍
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 jessionlin<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

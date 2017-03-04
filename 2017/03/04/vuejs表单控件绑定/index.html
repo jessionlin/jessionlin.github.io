@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vuejs表单控件绑定 | Jessionlin&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基础语法vuejs中用v-model指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。但要注意的是v-model仅仅是语法糖，它只负责监听用户的输入时间一更新数据，并特别处理一些极端的例子。
+注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值2.当控件有多种语言的需求时，v-model不会因为语言的改变而更新，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuejs表单控件绑定">
+<meta property="og:url" content="http://yoursite.com/2017/03/04/vuejs表单控件绑定/index.html">
+<meta property="og:site_name" content="Jessionlin's blog">
+<meta property="og:description" content="一、基础语法vuejs中用v-model指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。但要注意的是v-model仅仅是语法糖，它只负责监听用户的输入时间一更新数据，并特别处理一些极端的例子。
+注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值2.当控件有多种语言的需求时，v-model不会因为语言的改变而更新，">
+<meta property="og:updated_time" content="2017-03-04T15:02:43.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuejs表单控件绑定">
+<meta name="twitter:description" content="一、基础语法vuejs中用v-model指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。但要注意的是v-model仅仅是语法糖，它只负责监听用户的输入时间一更新数据，并特别处理一些极端的例子。
+注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值2.当控件有多种语言的需求时，v-model不会因为语言的改变而更新，">
+  
+    <link rel="alternate" href="/atom.xml" title="Jessionlin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jessionlin&#39;s blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vuejs表单控件绑定" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/04/vuejs表单控件绑定/" class="article-date">
+  <time datetime="2017-03-04T13:18:59.000Z" itemprop="datePublished">2017-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vuejs表单控件绑定
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="一、基础语法"><a href="#一、基础语法" class="headerlink" title="一、基础语法"></a>一、基础语法</h2><p>vuejs中用<code>v-model</code>指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。但要注意的是<code>v-model</code>仅仅是语法糖，它只负责监听用户的输入时间一更新数据，并特别处理一些极端的例子。</p>
+<h6 id="注：1-·v-model-并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值"><a href="#注：1-·v-model-并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值" class="headerlink" title="注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值"></a>注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值</h6><h6 id="2-当控件有多种语言的需求时，v-model不会因为语言的改变而更新，在这种情况下要使用-input’事件来替代"><a href="#2-当控件有多种语言的需求时，v-model不会因为语言的改变而更新，在这种情况下要使用-input’事件来替代" class="headerlink" title="2.当控件有多种语言的需求时，v-model不会因为语言的改变而更新，在这种情况下要使用`input’事件来替代"></a>2.当控件有多种语言的需求时，<code>v-model</code>不会因为语言的改变而更新，在这种情况下要使用`input’事件来替代</h6><h3 id="1-文本"><a href="#1-文本" class="headerlink" title="1.文本"></a>1.文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;</div><div class="line">&lt;p&gt;Message is: &#123;&#123; message &#125;&#125;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-多行文本"><a href="#2-多行文本" class="headerlink" title="2.多行文本"></a>2.多行文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;Multiline message is:&lt;/span&gt;</div><div class="line">&lt;p style=&quot;white-space: pre&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;textarea v-model=&quot;message&quot; placeholder=&quot;add multiple lines&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+<h6 id="注：在文本区域插值-lt-textarea-gt-lt-textarea-gt-并不会生效，应用v-model来替代"><a href="#注：在文本区域插值-lt-textarea-gt-lt-textarea-gt-并不会生效，应用v-model来替代" class="headerlink" title="注：在文本区域插值(&lt;textarea&gt;&lt;/textarea&gt;)并不会生效，应用v-model来替代"></a>注：在文本区域插值(<code>&lt;textarea&gt;&lt;/textarea&gt;</code>)并不会生效，应用<code>v-model</code>来替代</h6><h3 id="3-复选框"><a href="#3-复选框" class="headerlink" title="3.复选框"></a>3.复选框</h3><h4 id="a-单个勾选框，逻辑值："><a href="#a-单个勾选框，逻辑值：" class="headerlink" title="a.单个勾选框，逻辑值："></a>a.单个勾选框，逻辑值：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;</div><div class="line">&lt;label for=&quot;checkbox&quot;&gt;&#123;&#123; checked &#125;&#125;&lt;/label&gt;</div></pre></td></tr></table></figure>
+<h4 id="b-多个勾选框，绑定到同一个数组："><a href="#b-多个勾选框，绑定到同一个数组：" class="headerlink" title="b.多个勾选框，绑定到同一个数组："></a>b.多个勾选框，绑定到同一个数组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;</div><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;</div><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;span&gt;Checked names: &#123;&#123; checkedNames &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-单选按钮"><a href="#4-单选按钮" class="headerlink" title="4.单选按钮"></a>4.单选按钮</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;radio&quot; id=&quot;one&quot; value=&quot;One&quot; v-model=&quot;picked&quot;&gt;</div><div class="line">&lt;label for=&quot;one&quot;&gt;One&lt;/label&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;input type=&quot;radio&quot; id=&quot;two&quot; value=&quot;Two&quot; v-model=&quot;picked&quot;&gt;</div><div class="line">&lt;label for=&quot;two&quot;&gt;Two&lt;/label&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;span&gt;Picked: &#123;&#123; picked &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<h3 id="5-选择列表"><a href="#5-选择列表" class="headerlink" title="5.选择列表"></a>5.选择列表</h3><h4 id="a-单选列表"><a href="#a-单选列表" class="headerlink" title="a.单选列表:"></a>a.单选列表:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">	&lt;option&gt;A&lt;/option&gt;</div><div class="line">    &lt;option&gt;B&lt;/option&gt;</div><div class="line">    &lt;option&gt;C&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div><div class="line">&lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<h4 id="b-多选列表（绑定到同一个数组）："><a href="#b-多选列表（绑定到同一个数组）：" class="headerlink" title="b.多选列表（绑定到同一个数组）："></a>b.多选列表（绑定到同一个数组）：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">	&lt;option&gt;A&lt;/option&gt;</div><div class="line">    &lt;option&gt;B&lt;/option&gt;</div><div class="line">    &lt;option&gt;C&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div><div class="line">&lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<h4 id="c-用v-for渲染："><a href="#c-用v-for渲染：" class="headerlink" title="c.用v-for渲染："></a>c.用<code>v-for</code>渲染：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">	&lt;option v-for=&quot;option in options&quot; v-bind:value=&quot;option.text&quot;&gt;&#123;&#123; option.text &#125;&#125;&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div><div class="line">&lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">new Vue(&#123;</div><div class="line">	el:&apos;#id&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	selected:&apos;A&apos;,</div><div class="line">        options:[</div><div class="line">        	&#123;text:&apos;One&apos;,value:&apos;A&apos;&#125;,</div><div class="line">            &#123;text:&apos;Two&apos;,value:&apos;B&apos;&#125;,</div><div class="line">            &#123;text:&apos;Three&apos;,value:&apos;C&apos;&#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="二、绑定value"><a href="#二、绑定value" class="headerlink" title="二、绑定value"></a>二、绑定value</h2><p>对于单选按钮，勾选框及选择列表选项，<code>v-model</code>绑定的value通常是静态字符串（对于勾选框是逻辑值）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//当选中时，`picked` 为字符串 &quot;a&quot;</div><div class="line">&lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;a&quot;&gt;</div><div class="line">//`toggle` 为 true 或 false</div><div class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;toggle&quot;&gt;</div><div class="line">//当选中时，`selected` 为字符串 &quot;abc&quot;</div><div class="line">&lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">  &lt;option value=&quot;abc&quot;&gt;ABC&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div><div class="line">通过`v-bind`可以自己定义控件选中时显示的value值</div></pre></td></tr></table></figure></p>
+<h4 id="1-复选框"><a href="#1-复选框" class="headerlink" title="1.复选框"></a>1.复选框</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot;</div><div class="line">	   v-model=&quot;toggle&quot;</div><div class="line">       v-bind:true-value=&quot;a&quot;</div><div class="line">       v-bind:false-value=&quot;b&quot;&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 当选中时</div><div class="line">vm.toggle === vm.a</div><div class="line">// 当没有选中时</div><div class="line">vm.toggle === vm.b</div></pre></td></tr></table></figure>
+<h4 id="2-单选按钮"><a href="#2-单选按钮" class="headerlink" title="2.单选按钮"></a>2.单选按钮</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;radio&quot; v-model=&quot;pick&quot; v-bind:value=&quot;a&quot;&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 当选中时</div><div class="line">vm.pick === vm.a</div></pre></td></tr></table></figure>
+<h4 id="3-选择列表设置"><a href="#3-选择列表设置" class="headerlink" title="3.选择列表设置"></a>3.选择列表设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">	&lt;!-- 内联对象字面量 --&gt;</div><div class="line">  &lt;option v-bind:value=&quot;&#123; number: 123 &#125;&quot;&gt;123&lt;/option&gt;</div><div class="line">   &lt;option v-bind:value=&quot;&#123; number: 456 &#125;&quot;&gt;456&lt;/option&gt;</div><div class="line">    &lt;option v-bind:value=&quot;&#123; number: 789 &#125;&quot;&gt;789&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typeof vm.selected // -&gt; &apos;object&apos;</div><div class="line">vm.selected.number // -&gt; 123 || 456 || 789</div></pre></td></tr></table></figure>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><h4 id="1-lazy"><a href="#1-lazy" class="headerlink" title="1..lazy"></a>1.<code>.lazy</code></h4><p>在默认情况下，<code>v-model</code>在<code>input</code>事件中同步输入框的值与数据（除了上述语言问题部分），这是我们可以添加一个修饰符<code>.lazy</code>，从而转变为在<code>change</code>事件中同步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 在 &quot;change&quot; 而不是 &quot;input&quot; 事件中更新 --&gt;</div><div class="line">&lt;input v-model.lazy=&quot;msg&quot; &gt;</div></pre></td></tr></table></figure></p>
+<h4 id="2-number"><a href="#2-number" class="headerlink" title="2..number"></a>2.<code>.number</code></h4><p>如果想自动将用户的输入值转为Number类型（如果原值的转换结果为NaN则返回原值），可以添加一个修饰符<code>number</code>给<code>v-model</code>来处理输入值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model.number=&quot;age&quot; type=&quot;number&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>这通常很有用，因为在<code>type=&quot;number&quot;</code>时HTML中输入的值也总是会返回字符串类型。</p>
+<h4 id="3-trim"><a href="#3-trim" class="headerlink" title="3.trim"></a>3.<code>trim</code></h4><p>如果要自动过滤用户输入的首尾空格，可以添加<code>trim</code>修饰符到<code>v-model</code>上过滤输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model.trim=&quot;msg&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>总结：表单的总结绑定通常很有效，通过三种修饰符我们可以有效的对用户的输入进行处理，并根据自身需求决定什么时候响应事件；操作非常简单，绑定的单个控件时，我们我们往往只需要在data中使用一个变量设定初始值即可，对于多选，只需要将变量设为数组即可，选中控件的value值可以通过<code>v-bind</code>进行绑定。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/04/vuejs表单控件绑定/" data-id="cizvdps2100064wo0r81gfqwo" class="article-share-link">分享</a>
+      
+        <a href="http://yoursite.com/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/04/用CSS画出三角形/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">用CSS画出三角形</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/03/04/vuejs表单控件绑定/" data-title="vuejs表单控件绑定" data-url="http://yoursite.com/2017/03/04/vuejs表单控件绑定/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基础语法"><span class="toc-number">1.</span> <span class="toc-text">一、基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：1-·v-model-并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">注：1.·v-model`并不关心表单控件初始化所生成的值。因为它会选择Vue实例数据来作为具体的值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-当控件有多种语言的需求时，v-model不会因为语言的改变而更新，在这种情况下要使用-input’事件来替代"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2.当控件有多种语言的需求时，v-model不会因为语言的改变而更新，在这种情况下要使用`input’事件来替代</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文本"><span class="toc-number">1.1.</span> <span class="toc-text">1.文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-多行文本"><span class="toc-number">1.2.</span> <span class="toc-text">2.多行文本</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：在文本区域插值-lt-textarea-gt-lt-textarea-gt-并不会生效，应用v-model来替代"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">注：在文本区域插值(<textarea></textarea>)并不会生效，应用v-model来替代</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-复选框"><span class="toc-number">1.3.</span> <span class="toc-text">3.复选框</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-单个勾选框，逻辑值："><span class="toc-number">1.3.1.</span> <span class="toc-text">a.单个勾选框，逻辑值：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-多个勾选框，绑定到同一个数组："><span class="toc-number">1.3.2.</span> <span class="toc-text">b.多个勾选框，绑定到同一个数组：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-单选按钮"><span class="toc-number">1.4.</span> <span class="toc-text">4.单选按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-选择列表"><span class="toc-number">1.5.</span> <span class="toc-text">5.选择列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-单选列表"><span class="toc-number">1.5.1.</span> <span class="toc-text">a.单选列表:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-多选列表（绑定到同一个数组）："><span class="toc-number">1.5.2.</span> <span class="toc-text">b.多选列表（绑定到同一个数组）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-用v-for渲染："><span class="toc-number">1.5.3.</span> <span class="toc-text">c.用v-for渲染：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、绑定value"><span class="toc-number">2.</span> <span class="toc-text">二、绑定value</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-复选框"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.复选框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-单选按钮"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.单选按钮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-选择列表设置"><span class="toc-number">2.0.3.</span> <span class="toc-text">3.选择列表设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修饰符"><span class="toc-number">3.</span> <span class="toc-text">修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-lazy"><span class="toc-number">3.0.1.</span> <span class="toc-text">1..lazy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-number"><span class="toc-number">3.0.2.</span> <span class="toc-text">2..number</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-trim"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.trim</span></a></li></ol></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;youemail@outlook.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"jessionlin1"};
+      </script>
+      <script src="/duoshuo/embed.js"></script>
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vuejs Prop基本用法 | Jessionlin&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、使用Prop传递数据组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用props选项声明”prop”1234Vue.component(&amp;apos;child&amp;apos;,&amp;#123;	props:[&amp;apos;message&amp;apos;],    temp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vuejs Prop基本用法">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/index.html">
+<meta property="og:site_name" content="Jessionlin's blog">
+<meta property="og:description" content="一、使用Prop传递数据组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用props选项声明”prop”1234Vue.component(&amp;apos;child&amp;apos;,&amp;#123;	props:[&amp;apos;message&amp;apos;],    temp">
+<meta property="og:updated_time" content="2017-03-05T02:40:36.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vuejs Prop基本用法">
+<meta name="twitter:description" content="一、使用Prop传递数据组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用props选项声明”prop”1234Vue.component(&amp;apos;child&amp;apos;,&amp;#123;	props:[&amp;apos;message&amp;apos;],    temp">
+  
+    <link rel="alternate" href="/atom.xml" title="Jessionlin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jessionlin&#39;s blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Vuejs-Prop基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/Vuejs-Prop基本用法/" class="article-date">
+  <time datetime="2017-03-05T01:58:51.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vuejs Prop基本用法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="一、使用Prop传递数据"><a href="#一、使用Prop传递数据" class="headerlink" title="一、使用Prop传递数据"></a>一、使用Prop传递数据</h2><p>组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。<br>prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用<code>props</code>选项声明”prop”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;message&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>然后向它传入一个普通字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello!</div></pre></td></tr></table></figure></p>
+<h2 id="二、camelCase-vs-kebab-case"><a href="#二、camelCase-vs-kebab-case" class="headerlink" title="二、camelCase vs.kebab-case"></a>二、camelCase vs.kebab-case</h2><p>html不区分大小写。当使用非字符串模板时，prop的名字形式会从camelCase转为kebab-case（短横线隔开）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//camelCase</div><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;myMessage&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//kebab-case</div><div class="line">&lt;child my-message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>再次说明，如果你是用字符串模板，不用在意这些限制。</p>
+<h2 id="三、动态Prop"><a href="#三、动态Prop" class="headerlink" title="三、动态Prop"></a>三、动态Prop</h2><p>类似于用<code>v-bind</code>绑定HTML特性到一个表达式，也可以用<code>v-bind</code>动态绑定props的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	&lt;input v-model=&quot;parrentMsg&quot;&gt;</div><div class="line">    &lt;br&gt;</div><div class="line">    &lt;child v-bind:my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>使用<code>v-bind</code>的缩写语法通常更简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child :my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="四、字面量语法vs动态语法"><a href="#四、字面量语法vs动态语法" class="headerlink" title="四、字面量语法vs动态语法"></a>四、字面量语法vs动态语法</h2><p>因为它是一个字面<code>prop</code> ，它的值以字符串 <code>&quot;1&quot;</code> 而不是以实际的数字传下去。如果想传递一个实际的 JavaScript 数字，需要使用 <code>v-bind</code> ，从而让它的值被当作 JavaScript 表达式计算：</p>
+<p><comp v-bind:some-prop="1"></comp></p>
+<h2 id="五、单项数据流"><a href="#五、单项数据流" class="headerlink" title="五、单项数据流"></a>五、单项数据流</h2><p>prop是单项绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。同时，这也很好理解，父组件是子组件的高度抽象，表示子组件的共有部分，一个组件的数据改变并不会改变其抽象，然而其抽象的改变却代表着所有子组件的改变。<br>另外，每次组渐渐更新时，子组件的所有prop都会更新为最新值。这意味着你不应该在子组件内部改变prop。如果你这么做了，Vue会在控制台给出警告。<br>通常有两种改变prop的情况：</p>
+<h4 id="1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"><a href="#1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；" class="headerlink" title="1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"></a>1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；</h4><h4 id="2-prop作为需要被转变的原始值传入。"><a href="#2-prop作为需要被转变的原始值传入。" class="headerlink" title="2.prop作为需要被转变的原始值传入。"></a>2.prop作为需要被转变的原始值传入。</h4><p>更确切地说这两种情况是：<br>    a.定义一个局部data属性，并将prop的初始值作为局部数据的初始值。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    props: [&apos;initialCounter&apos;],</div><div class="line">	data: function () &#123;</div><div class="line">  		return &#123; counter: this.initialCounter&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>b.定义一个 computed 属性，此属性从 prop 的值计算得出。
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   props: [&apos;size&apos;],</div><div class="line">computed: &#123;</div><div class="line"> 		normalizedSize: function () &#123;</div><div class="line">  		 return this.size.trim().toLowerCase()</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="六、Prop验证"><a href="#六、Prop验证" class="headerlink" title="六、Prop验证"></a>六、Prop验证</h2><p>组件可以为 props 指定验证要求。如果未指定验证要求，Vue 会发出警告。当组件给其他人使用时这很有用。<br>prop 是一个对象而不是字符串数组时，它包含验证要求：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;example&apos;, &#123;</div><div class="line">  props: &#123;</div><div class="line">    // 基础类型检测 （`null` 意思是任何类型都可以）</div><div class="line">    propA: Number,</div><div class="line">    // 多种类型</div><div class="line">    propB: [String, Number],</div><div class="line">    // 必传且是字符串</div><div class="line">    propC: &#123;</div><div class="line">      type: String,</div><div class="line">      required: true</div><div class="line">    &#125;,</div><div class="line">    // 数字，有默认值</div><div class="line">    propD: &#123;</div><div class="line">      type: Number,</div><div class="line">      default: 100</div><div class="line">    &#125;,</div><div class="line">    // 数组／对象的默认值应当由一个工厂函数返回</div><div class="line">    propE: &#123;</div><div class="line">      type: Object,</div><div class="line">      default: function () &#123;</div><div class="line">        return &#123; message: &apos;hello&apos; &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    // 自定义验证函数</div><div class="line">    propF: &#123;</div><div class="line">      validator: function (value) &#123;</div><div class="line">        return value &gt; 10</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><code>type</code>可以是下面的原生构造器：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Function</li>
+<li>Object</li>
+<li>Array</li>
+</ul>
+<p><code>type</code>也可以是一个自定义构造器，使用<code>instanceof</code>检测。当prop验证失败了，如果使用的是开发版本会抛出一条警告。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/" data-id="cizw2nj230002zso0ai4awxyr" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/#ds-thread" class="article-comment-link">Comments</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/04/vuejs表单控件绑定/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vuejs表单控件绑定</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/03/05/Vuejs-Prop基本用法/" data-title="Vuejs Prop基本用法" data-url="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、使用Prop传递数据"><span class="toc-number">1.</span> <span class="toc-text">一、使用Prop传递数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、camelCase-vs-kebab-case"><span class="toc-number">2.</span> <span class="toc-text">二、camelCase vs.kebab-case</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、动态Prop"><span class="toc-number">3.</span> <span class="toc-text">三、动态Prop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、字面量语法vs动态语法"><span class="toc-number">4.</span> <span class="toc-text">四、字面量语法vs动态语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、单项数据流"><span class="toc-number">5.</span> <span class="toc-text">五、单项数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"><span class="toc-number">5.0.1.</span> <span class="toc-text">1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-prop作为需要被转变的原始值传入。"><span class="toc-number">5.0.2.</span> <span class="toc-text">2.prop作为需要被转变的原始值传入。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Prop验证"><span class="toc-number">6.</span> <span class="toc-text">六、Prop验证</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;youemail@outlook.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"jessionlin1"};
+      </script>
+      <script src="/duoshuo/embed.js"></script>
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>

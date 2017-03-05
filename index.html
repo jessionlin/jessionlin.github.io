@@ -40,7 +40,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,73 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Vuejs-Prop基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/Vuejs-Prop基本用法/" class="article-date">
+  <time datetime="2017-03-05T01:58:51.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/05/Vuejs-Prop基本用法/">Vuejs Prop基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="一、使用Prop传递数据"><a href="#一、使用Prop传递数据" class="headerlink" title="一、使用Prop传递数据"></a>一、使用Prop传递数据</h2><p>组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。<br>prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用<code>props</code>选项声明”prop”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;message&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>然后向它传入一个普通字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello!</div></pre></td></tr></table></figure></p>
+<h2 id="二、camelCase-vs-kebab-case"><a href="#二、camelCase-vs-kebab-case" class="headerlink" title="二、camelCase vs.kebab-case"></a>二、camelCase vs.kebab-case</h2><p>html不区分大小写。当使用非字符串模板时，prop的名字形式会从camelCase转为kebab-case（短横线隔开）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//camelCase</div><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;myMessage&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//kebab-case</div><div class="line">&lt;child my-message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>再次说明，如果你是用字符串模板，不用在意这些限制。</p>
+<h2 id="三、动态Prop"><a href="#三、动态Prop" class="headerlink" title="三、动态Prop"></a>三、动态Prop</h2><p>类似于用<code>v-bind</code>绑定HTML特性到一个表达式，也可以用<code>v-bind</code>动态绑定props的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	&lt;input v-model=&quot;parrentMsg&quot;&gt;</div><div class="line">    &lt;br&gt;</div><div class="line">    &lt;child v-bind:my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>使用<code>v-bind</code>的缩写语法通常更简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child :my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="四、字面量语法vs动态语法"><a href="#四、字面量语法vs动态语法" class="headerlink" title="四、字面量语法vs动态语法"></a>四、字面量语法vs动态语法</h2><p>因为它是一个字面<code>prop</code> ，它的值以字符串 <code>&quot;1&quot;</code> 而不是以实际的数字传下去。如果想传递一个实际的 JavaScript 数字，需要使用 <code>v-bind</code> ，从而让它的值被当作 JavaScript 表达式计算：</p>
+<p><comp v-bind:some-prop="1"></comp></p>
+<h2 id="五、单项数据流"><a href="#五、单项数据流" class="headerlink" title="五、单项数据流"></a>五、单项数据流</h2><p>prop是单项绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。同时，这也很好理解，父组件是子组件的高度抽象，表示子组件的共有部分，一个组件的数据改变并不会改变其抽象，然而其抽象的改变却代表着所有子组件的改变。<br>另外，每次组渐渐更新时，子组件的所有prop都会更新为最新值。这意味着你不应该在子组件内部改变prop。如果你这么做了，Vue会在控制台给出警告。<br>通常有两种改变prop的情况：</p>
+<h4 id="1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"><a href="#1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；" class="headerlink" title="1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"></a>1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；</h4><h4 id="2-prop作为需要被转变的原始值传入。"><a href="#2-prop作为需要被转变的原始值传入。" class="headerlink" title="2.prop作为需要被转变的原始值传入。"></a>2.prop作为需要被转变的原始值传入。</h4><p>更确切地说这两种情况是：<br>    a.定义一个局部data属性，并将prop的初始值作为局部数据的初始值。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    props: [&apos;initialCounter&apos;],</div><div class="line">	data: function () &#123;</div><div class="line">  		return &#123; counter: this.initialCounter&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>b.定义一个 computed 属性，此属性从 prop 的值计算得出。
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   props: [&apos;size&apos;],</div><div class="line">computed: &#123;</div><div class="line"> 		normalizedSize: function () &#123;</div><div class="line">  		 return this.size.trim().toLowerCase()</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="六、Prop验证"><a href="#六、Prop验证" class="headerlink" title="六、Prop验证"></a>六、Prop验证</h2><p>组件可以为 props 指定验证要求。如果未指定验证要求，Vue 会发出警告。当组件给其他人使用时这很有用。<br>prop 是一个对象而不是字符串数组时，它包含验证要求：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;example&apos;, &#123;</div><div class="line">  props: &#123;</div><div class="line">    // 基础类型检测 （`null` 意思是任何类型都可以）</div><div class="line">    propA: Number,</div><div class="line">    // 多种类型</div><div class="line">    propB: [String, Number],</div><div class="line">    // 必传且是字符串</div><div class="line">    propC: &#123;</div><div class="line">      type: String,</div><div class="line">      required: true</div><div class="line">    &#125;,</div><div class="line">    // 数字，有默认值</div><div class="line">    propD: &#123;</div><div class="line">      type: Number,</div><div class="line">      default: 100</div><div class="line">    &#125;,</div><div class="line">    // 数组／对象的默认值应当由一个工厂函数返回</div><div class="line">    propE: &#123;</div><div class="line">      type: Object,</div><div class="line">      default: function () &#123;</div><div class="line">        return &#123; message: &apos;hello&apos; &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    // 自定义验证函数</div><div class="line">    propF: &#123;</div><div class="line">      validator: function (value) &#123;</div><div class="line">        return value &gt; 10</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><code>type</code>可以是下面的原生构造器：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Function</li>
+<li>Object</li>
+<li>Array</li>
+</ul>
+<p><code>type</code>也可以是一个自定义构造器，使用<code>instanceof</code>检测。当prop验证失败了，如果使用的是开发版本会抛出一条警告。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/" data-id="cizw2nj230002zso0ai4awxyr" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/03/05/Vuejs-Prop基本用法/#ds-thread" class="article-comment-link">Comments</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-vuejs表单控件绑定" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -118,9 +185,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/vuejs表单控件绑定/" data-id="cizve50eu0006uso0oycpb72c" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/04/vuejs表单控件绑定/" data-id="cizw2nj2l0009zso06m2t18s9" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -175,9 +242,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/用CSS画出三角形/" data-id="cizve50f30008uso03sush9il" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/04/用CSS画出三角形/" data-id="cizw2nj2j0008zso02xv5y0vp" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/04/用CSS画出三角形/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/04/用CSS画出三角形/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -234,9 +301,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizve50ew0007uso0yfzdzvco" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cizw2nj2d0007zso09xwod0ju" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -303,9 +370,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizve50er0005uso0d0o7j5fm" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cizw2nj290005zso01hm1tizw" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -366,9 +433,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizve50eo0004uso00o3giipm" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cizw2nj2c0006zso0t7igp5s5" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -459,9 +526,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizve50em0003uso0xcmm1pia" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cizw2nj260004zso03jswovdp" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -510,9 +577,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizve50e40000uso09pr7oxrc" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/28/hello-world/" data-id="cizw2nj1x0000zso07qepz5b9" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/02/28/hello-world/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/02/28/hello-world/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -574,9 +641,9 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizve50ee0001uso0551wrdrw" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cizw2nj210001zso0mgc74hpd" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -668,9 +735,9 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizve50ej0002uso0rcjp2oj3" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cizw2nj250003zso0uh8vusr2" class="article-share-link">Share</a>
       
-        <a href="http://yoursite.com/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -720,9 +787,13 @@ k. *package.json*文件在node中已介绍
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
+    <h3 class="widget-title recent-posts">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/05/Vuejs-Prop基本用法/">Vuejs Prop基本用法</a>
+          </li>
         
           <li>
             <a href="/2017/03/04/vuejs表单控件绑定/">vuejs表单控件绑定</a>
@@ -740,10 +811,6 @@ k. *package.json*文件在node中已介绍
             <a href="/2017/03/02/vuejs-基本操作/">vuejs 基本操作</a>
           </li>
         
-          <li>
-            <a href="/2017/03/01/node配置与安装/">node配置与安装</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -751,7 +818,7 @@ k. *package.json*文件在node中已介绍
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title lastest-comments">最新评论</h3>
+    <h3 class="widget-title lastest-comments">Latest Comments</h3>
     <div class="widget">
          <div class="hot-comments">
     <!-- 多说最新评论 start -->
@@ -768,9 +835,9 @@ k. *package.json*文件在node中已介绍
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title archive">归档</h3>
+    <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -784,10 +851,10 @@ k. *package.json*文件在node中已介绍
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;youemail@outlook.com
+      Contact&nbsp;|&nbsp;youemail@outlook.com
     </div>
   </div>
 </footer>

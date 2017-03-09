@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Jessionlin's blog">
 <meta property="og:description" content="JavaScript是前端工程师用的不能再熟悉的一种脚本语言，主要是用户创建动态网页、与后端交互等。下面是我学习时整理的JavaScript基础语法
 1.js基本常识js命名规范：    1.一定要有意义，尽量用英文单词    2.不要以数字开头，不能使系统的关键字,不能使用运算符    3.注意大小写大小写：    变量名和函数名 第一个单词 小写以后每个单词 首字母大写    对象 ： 每个单">
-<meta property="og:updated_time" content="2017-03-09T05:30:12.712Z">
+<meta property="og:updated_time" content="2017-03-09T05:32:20.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础语法简述">
 <meta name="twitter:description" content="JavaScript是前端工程师用的不能再熟悉的一种脚本语言，主要是用户创建动态网页、与后端交互等。下面是我学习时整理的JavaScript基础语法
@@ -143,221 +143,130 @@ f.4对象实例.方法（）；
 </code></pre><hr>
 <p>如Date对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var dt=new Date();</div><div class="line">	var str=&quot;今天是：&quot;;</div><div class="line">	str += (dt.getYear()+1900)+&quot;年&quot;;</div><div class="line">	str += (dt.getMonth()+1)+&quot;月&quot;;</div><div class="line">	str += dt.getDate()+&quot;日 &quot;;</div><div class="line">	str += dt.getHours()+&quot;:&quot;;</div><div class="line">	str += dt.getMinutes()+&quot;:&quot;;</div><div class="line">	str += dt.getSeconds()+&quot; &quot;;</div><div class="line">	</div><div class="line">	var	arr=[&apos;星期日&apos;,&apos;星期一&apos;,&apos;星期二&apos;,&apos;星期三&apos;,&apos;星期四&apos;,&apos;星期五&apos;,&apos;星期六&apos;];</div><div class="line">	str += arr[dt.getDay()];</div><div class="line">	document.write(str);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p><strong>3.2自定义对象</strong><br>a.方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function Play()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	var p = new Play();</div><div class="line">	//属性</div><div class="line">	p.width=300;</div><div class="line">	p.height=200;</div><div class="line">	p.num=4;</div><div class="line">	p.autotime=3;</div><div class="line">	//方法</div><div class="line">	p.autoPlay=function()&#123;</div><div class="line">		alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">	&#125;</div><div class="line">	p.test=function()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>b.方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Play()&#123;</div><div class="line">									=》》》》》》var p = new Object();</div><div class="line">	&#125;</div><div class="line">	var p = new Play();</div><div class="line">```	</div><div class="line">c.方法三：</div></pre></td></tr></table></figure></p>
-<pre><code>function Play(){
-    var p = new Object();
-    //属性
-    p.width=300;
-    p.height=200;
-    p.num=4;
-    p.autotime=3;
-    //方法
-    p.autoPlay=function(){
-        alert(&quot;dsfdsfdsfdgf&quot;);
-        alert(p.num);//this.num,静态方法中无this
-    }
-    p.test=function(){
-
-    }
-    return p;
-}
-
-var p = new Play();
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<script>
-    function Play(){
-        var p = new Object();
-        //属性
-        p.width=300;
-        p.height=200;
-        p.num=4;
-        p.autotime=3;
-        //方法
-        p.autoPlay=function(){
-            alert("dsfdsfdsfdgf");
-            alert(this.num);
-        }
-        p.test=function(){
-
-        }
-        return p;
-    }
-
-    var p = new Play();
-
-    alert(p.width);
-    p.autoPlay();
-</script>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">d.方法四：</div><div class="line">```&lt;script&gt;</div><div class="line">//有this就得有对象</div><div class="line">	function Play(width,height,num)&#123;</div><div class="line">		this.width=width;</div><div class="line">		this.height=height;</div><div class="line">		this.num=num;</div><div class="line">		this.autoPlay=function()&#123;</div><div class="line">			alert(&quot;###########&quot;);</div><div class="line">		&#125;</div><div class="line">		this.test=function()&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return p;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	var p = new Play(3000,200,8);</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-
+<p>b.方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Play()&#123;</div><div class="line">									=》》》》》》var p = new Object();</div><div class="line">	&#125;</div><div class="line">	var p = new Play();</div></pre></td></tr></table></figure></p>
+<p>c.方法三：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Play()&#123;</div><div class="line">	var p = new Object();</div><div class="line">	//属性</div><div class="line">	p.width=300;</div><div class="line">	p.height=200;</div><div class="line">	p.num=4;</div><div class="line">	p.autotime=3;</div><div class="line">	//方法</div><div class="line">	p.autoPlay=function()&#123;</div><div class="line">		alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">		alert(p.num);//this.num,静态方法中无this</div><div class="line">	&#125;</div><div class="line">	p.test=function()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	return p;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p = new Play();</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function Play()&#123;</div><div class="line">		var p = new Object();</div><div class="line">		//属性</div><div class="line">		p.width=300;</div><div class="line">		p.height=200;</div><div class="line">		p.num=4;</div><div class="line">		p.autotime=3;</div><div class="line">		//方法</div><div class="line">		p.autoPlay=function()&#123;</div><div class="line">			alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">			alert(this.num);</div><div class="line">		&#125;</div><div class="line">		p.test=function()&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return p;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	var p = new Play();</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>d.方法四：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//有this就得有对象</div><div class="line">	function Play(width,height,num)&#123;</div><div class="line">		this.width=width;</div><div class="line">		this.height=height;</div><div class="line">		this.num=num;</div><div class="line">		this.autoPlay=function()&#123;</div><div class="line">			alert(&quot;###########&quot;);</div><div class="line">		&#125;</div><div class="line">		this.test=function()&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return p;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	var p = new Play(3000,200,8);</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">遍历属性名(接上)：</div><div class="line">	var pro=&quot;&quot;;</div><div class="line">for(pro in p)&#123;</div><div class="line">	alert(p[pro]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">with(对象st)&#123;</div><div class="line">	所有方法如果不加对象都是st的方法</div><div class="line">&#125;</div><div class="line"></div><div class="line">with(document)&#123;</div><div class="line">	write(&quot;&lt;table&gt;&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-**3.3内置对象**
-a.Function对象：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x+y&quot;);</div><div class="line">demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x*y&quot;);</div><div class="line">alert(demo(3,4));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-
-b.String对象：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = new String(&quot;abcdefg&quot;);</div><div class="line">var str = &quot;abcdefg&quot;;</div></pre></td></tr></table></figure>
-
-c.快速声明对象:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var p=new Object();</div><div class="line">p.name=&quot;zhangsan&quot;;</div><div class="line">p.age=10;</div><div class="line">p.sex=&quot;nan&quot;;</div><div class="line"></div><div class="line">/*</div><div class="line">	json</div><div class="line">	&#123;属性1:值1,属性2:值2,属性3:值3,属性4:值4&#125;</div><div class="line">*/</div><div class="line">var p=&#123;name:&quot;zhangsan&quot;,age:10,sex:&quot;nan&quot;&#125;;</div><div class="line">alert(p.name);</div><div class="line">alert(p[&quot;age&quot;]);</div><div class="line"></div><div class="line"></div><div class="line">match()一般用于验证操作</div><div class="line">Number对象：</div><div class="line">alert(Number.MAX_VALUE);</div></pre></td></tr></table></figure>
-
-d.静态对象：不创建对象的情况下直接用对象名访问
-
-e.Math对象：
-不要实例化，直接调用
-如100以内随机数：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var num=Math.random()*100;</div><div class="line">document.write(num+&quot;&lt;br&gt;&quot;);</div></pre></td></tr></table></figure>
-
-### 4.数组
-数组的声明与应用
-a、数组的作用:只要是批量的数据都需要使用数组声明
-b、如何声明数组
-    4.1.快速声明数组的方法
-    var 数组名=[元素1,元素2,元素3,元素4];
-    其中的元素可以为另一个数组.
-    4.2.使用array对象
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function MyArray()&#123;</div><div class="line">	this.length=arguments.length;</div><div class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</div><div class="line">		this[i] = arguments[i];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	this.sort=function()&#123;&#125;</div><div class="line">	this.pop=function()&#123;&#125;</div><div class="line">	this.push=function()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<p><strong>3.3内置对象</strong><br>a.Function对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x+y&quot;);</div><div class="line">demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x*y&quot;);</div><div class="line">alert(demo(3,4));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>b.String对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = new String(&quot;abcdefg&quot;);</div><div class="line">var str = &quot;abcdefg&quot;;</div></pre></td></tr></table></figure></p>
+<p>c.快速声明对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var p=new Object();</div><div class="line">p.name=&quot;zhangsan&quot;;</div><div class="line">p.age=10;</div><div class="line">p.sex=&quot;nan&quot;;</div><div class="line"></div><div class="line">/*</div><div class="line">	json</div><div class="line">	&#123;属性1:值1,属性2:值2,属性3:值3,属性4:值4&#125;</div><div class="line">*/</div><div class="line">var p=&#123;name:&quot;zhangsan&quot;,age:10,sex:&quot;nan&quot;&#125;;</div><div class="line">alert(p.name);</div><div class="line">alert(p[&quot;age&quot;]);</div><div class="line"></div><div class="line"></div><div class="line">match()一般用于验证操作</div><div class="line">Number对象：</div><div class="line">alert(Number.MAX_VALUE);</div></pre></td></tr></table></figure></p>
+<p>d.静态对象：不创建对象的情况下直接用对象名访问</p>
+<p>e.Math对象：<br>不要实例化，直接调用<br>如100以内随机数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var num=Math.random()*100;</div><div class="line">document.write(num+&quot;&lt;br&gt;&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h3><p>数组的声明与应用<br>a、数组的作用:只要是批量的数据都需要使用数组声明<br>b、如何声明数组<br>    4.1.快速声明数组的方法<br>    var 数组名=[元素1,元素2,元素3,元素4];<br>    其中的元素可以为另一个数组.<br>    4.2.使用array对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function MyArray()&#123;</div><div class="line">	this.length=arguments.length;</div><div class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</div><div class="line">		this[i] = arguments[i];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	this.sort=function()&#123;&#125;</div><div class="line">	this.pop=function()&#123;&#125;</div><div class="line">	this.push=function()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(&quot;成员&quot;,&quot;成员&quot;,&quot;成员n&quot;);</div><div class="line">var arr = new Array(10);</div><div class="line"></div><div class="line">var arr=[1,5,3,4,2,9,8,7];</div><div class="line">arr.sort(function(a,b)&#123;//可用此方法对函数进行重写</div><div class="line">	if(a&gt;b)&#123;</div><div class="line">		return -1;</div><div class="line">	&#125;</div><div class="line">	else if(a == b)&#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	else&#123;return 1&#125;;</div><div class="line">&#125;);</div><div class="line">document.write(arr);</div><div class="line"></div><div class="line">var arr=[&quot;aaa&quot;,&quot;aaaa&quot;,&quot;aa&quot;,&quot;b&quot;,&quot;aaaaaaaa&quot;];</div><div class="line">//arr.push(&quot;wwww&quot;,&quot;yyyy&quot;);</div><div class="line">//arr.pop();</div><div class="line">//arr.unshift(&quot;hello&quot;);</div><div class="line">arr.shift();</div><div class="line">alert(arr);</div><div class="line">alert(arr.length);</div><div class="line"></div><div class="line">reverse();数组反转</div><div class="line">join(s);数组转为字符串，&apos;s&apos;为连接符</div></pre></td></tr></table></figure>
-
-c、遍历数组
-d、数组的处理（内置处理方法）
-
-### 5.DOM
-
-作用：DOM(Document Object Model)
-    1.document 文档  HTML/XML文件 即标记语言
-    2.Object对象(HTML元素 转乘的对象(js对象))
-    注意：如果使用js操作HTML文档，就需要先将HTML文档中的结构转成js对象
-    **a.操作属性**
-    **b.操作内容**
-        *5.1.innerText*//里面的东西全以文本形式显示  obj.innerText="<b>brother</b>"，
-        该属性火狐浏览器不兼容，可用textContent代替，用法相同
-        使用时可自己写一个方法,用document.all判断是否支持所有方法，即自己写个转换
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">		if(document.all)&#123;</div><div class="line">			alert(document.all);</div><div class="line">		&#125;</div><div class="line">		ffie(a,&quot;wwww&quot;);</div><div class="line">	alert(ffie(a));</div><div class="line">	function ffie(obj,value)&#123;</div><div class="line">		if(document.all)&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.innerText;</div><div class="line">			&#125;</div><div class="line">			else obj.innerText=value;</div><div class="line">		&#125;else&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.textContent;</div><div class="line">			&#125;</div><div class="line">			else obj.textContent=value;</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-5.2.innerHTML//里面的内容以HTML形式显示
-        使用时尽量使用innerHTML
-    5.3.outerText
-    5.4.outerHTML  //3,4都包含自己本身的标签
-        表单
-            表单元素取值需要用`value(<input>,<textarea>)`
-    **c.操作样式**
-        对象.style.属性="";同时属性需要格式化，即"-"去掉，后面的单词首字母大写
----
-        但有些属性无法从内联式样式中获取，此时用另一个属性即可 ， 如width/offsetWidth
----
-        操作样式较多时，可添加className，className数量不限;将className清空即取消样式
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">		var pro=&quot;&quot;;</div><div class="line">	for(pro in a)&#123;</div><div class="line">		document.write(&quot;a.&quot;+pro+&quot;=&quot;+a[&quot;pro&quot;]+&quot;&lt;br&gt;&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">可用此方法获取a标签中的所有属性</div><div class="line">有了以上三点的操作之前先转成对象</div></pre></td></tr></table></figure>
-
-    转成对象的两种形式:
-    1.标记名(多个)、id(唯一)、name(多个)
-    document中的三个方法
-    var objs=document.getElementsByTagName("div");
-    var obj = document.getElementById("one");
-    var obj = document.getElementsByName("two");
-    2.通过数组获取
-    document.body;
-    document.title;
-    window.frames;
+<p>c、遍历数组<br>d、数组的处理（内置处理方法）</p>
+<h3 id="5-DOM"><a href="#5-DOM" class="headerlink" title="5.DOM"></a>5.DOM</h3><p>作用：DOM(Document Object Model)<br>    1.document 文档  HTML/XML文件 即标记语言<br>    2.Object对象(HTML元素 转乘的对象(js对象))<br>    注意：如果使用js操作HTML文档，就需要先将HTML文档中的结构转成js对象<br>    <strong>a.操作属性</strong><br>    <strong>b.操作内容</strong><br>        <em>5.1.innerText</em>//里面的东西全以文本形式显示  obj.innerText=”<b>brother</b>“，<br>        该属性火狐浏览器不兼容，可用textContent代替，用法相同<br>        使用时可自己写一个方法,用document.all判断是否支持所有方法，即自己写个转换<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">		if(document.all)&#123;</div><div class="line">			alert(document.all);</div><div class="line">		&#125;</div><div class="line">		ffie(a,&quot;wwww&quot;);</div><div class="line">	alert(ffie(a));</div><div class="line">	function ffie(obj,value)&#123;</div><div class="line">		if(document.all)&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.innerText;</div><div class="line">			&#125;</div><div class="line">			else obj.innerText=value;</div><div class="line">		&#125;else&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.textContent;</div><div class="line">			&#125;</div><div class="line">			else obj.textContent=value;</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.2.innerHTML//里面的内容以HTML形式显示<br>        使用时尽量使用innerHTML<br>    5.3.outerText<br>    5.4.outerHTML  //3,4都包含自己本身的标签<br>        表单<br>            表单元素取值需要用<code>value(&lt;input&gt;,&lt;textarea&gt;)</code><br>    <strong>c.操作样式</strong></p>
+<pre><code>对象.style.属性=&quot;&quot;;同时属性需要格式化，即&quot;-&quot;去掉，后面的单词首字母大写
+</code></pre><hr>
+<pre><code>但有些属性无法从内联式样式中获取，此时用另一个属性即可 ， 如width/offsetWidth
+</code></pre><hr>
+<pre><code>操作样式较多时，可添加className，className数量不限;将className清空即取消样式
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">		var pro=&quot;&quot;;</div><div class="line">	for(pro in a)&#123;</div><div class="line">		document.write(&quot;a.&quot;+pro+&quot;=&quot;+a[&quot;pro&quot;]+&quot;&lt;br&gt;&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">可用此方法获取a标签中的所有属性</div><div class="line">有了以上三点的操作之前先转成对象</div></pre></td></tr></table></figure>
+<pre><code>转成对象的两种形式:
+1.标记名(多个)、id(唯一)、name(多个)
+document中的三个方法
+var objs=document.getElementsByTagName(&quot;div&quot;);
+var obj = document.getElementById(&quot;one&quot;);
+var obj = document.getElementsByName(&quot;two&quot;);
+2.通过数组获取
+document.body;
+document.title;
+window.frames;
 
 
-    document.all;//所有的标记
-    document.embeds;//所有动画
-    document.scripts;//所有js脚本
-    document.applets;//所有Java脚本
-    document.forms;//所有图像
-    document.images;//所有表单
-    document.anchors;//所有的锚点
-    document.styleSheets;//所有的样式
-    document.links;//所有链接
+document.all;//所有的标记
+document.embeds;//所有动画
+document.scripts;//所有js脚本
+document.applets;//所有Java脚本
+document.forms;//所有图像
+document.images;//所有表单
+document.anchors;//所有的锚点
+document.styleSheets;//所有的样式
+document.links;//所有链接
 
-    有7种方式访问(02.html)
----
-    其各种操作按照对象操作原则，可以无限制的在js中添加属性
-    Model:
-        一、将文档想成一个倒数，每一个部分（元素、内容、属性、注释）都是一个节点
-        二、只要知道一个节点，按关系找到其他节点，
-            父节点，                    parentNode
-            子节点（第一个，最后一个）  childNode  firstNode  lastNode
-            同胞节点 （上一个，下一个） nextSibling previousSibling
-        三、找到节点：节点类型nodeType，节点名nodeName，节点值nodeValue
-        nodeName属性含有节点的名称
-        元素节点的nodeName是标签名称
-        属性节点的nodeName是属性名称
-        文本节点的nodeName是#text
-        文档节点的nodeName永远是#document
-    注释：nodeName所包含的XML元素的标签名称永远是大写的
-        对于文本节点，nodeValue属性包含文本
-        对于属性节点，nodeValue属性包含属性值
-        nodeValue属性对文档节点和元素节点时不可用的。
-        nodeType属性克返回节点的类型
+有7种方式访问(02.html)
+</code></pre><hr>
+<pre><code>其各种操作按照对象操作原则，可以无限制的在js中添加属性
+Model:
+    一、将文档想成一个倒数，每一个部分（元素、内容、属性、注释）都是一个节点
+    二、只要知道一个节点，按关系找到其他节点，
+        父节点，                    parentNode
+        子节点（第一个，最后一个）  childNode  firstNode  lastNode
+        同胞节点 （上一个，下一个） nextSibling previousSibling
+    三、找到节点：节点类型nodeType，节点名nodeName，节点值nodeValue
+    nodeName属性含有节点的名称
+    元素节点的nodeName是标签名称
+    属性节点的nodeName是属性名称
+    文本节点的nodeName是#text
+    文档节点的nodeName永远是#document
+注释：nodeName所包含的XML元素的标签名称永远是大写的
+    对于文本节点，nodeValue属性包含文本
+    对于属性节点，nodeValue属性包含属性值
+    nodeValue属性对文档节点和元素节点时不可用的。
+    nodeType属性克返回节点的类型
 
-        元素类型                   节点类型
-        元素                        1
-        属性                        2
-        文本                        3
-        注释                        8
-        文档                        9
-        document.close()：关闭文档流
-        注意：不能用输出的方式在已经结束的文档流中添加数据，此时可以动态创建节点完成操作+
-        可以再一个文档流中：
-        1.创建节点
-            (在文本流中创建用document)document.createElement("");//只有一个文件中只能存在一个的节点不可创建
-            appendChild();
-            insertBefore();
-        2.添加到文档流中
-        3.删除节点
-        removeChild();
+    元素类型                   节点类型
+    元素                        1
+    属性                        2
+    文本                        3
+    注释                        8
+    文档                        9
+    document.close()：关闭文档流
+    注意：不能用输出的方式在已经结束的文档流中添加数据，此时可以动态创建节点完成操作+
+    可以再一个文档流中：
+    1.创建节点
+        (在文本流中创建用document)document.createElement(&quot;&quot;);//只有一个文件中只能存在一个的节点不可创建
+        appendChild();
+        insertBefore();
+    2.添加到文档流中
+    3.删除节点
+    removeChild();
+</code></pre><p>d.事件处理：<br>    一、事件源：任何一个HTML元素（节点），body，div，button，p,,a,h1…………<br>    二、事件 ：你的操作</p>
+<pre><code>    鼠标：
+        click      单击
+        dblclick        双击
+        textcontentmenu(在body) 文本菜单
+        contextmenu    //右键点击(06.html 2)
+        mouseover    放上
+        mouseout     离开
+        mousedown     按下
+        mouseup         抬起
+        mousemove      移动
 
-d.事件处理：
-    一、事件源：任何一个HTML元素（节点），body，div，button，p,,a,h1…………
-    二、事件 ：你的操作
+    键盘：
+        keypress  键盘事件   指数字字母键，其余键无效
+        keyup      键盘抬起   
+        keydown   按下          此时所有的键都可以取到
 
-        鼠标：
-            click      单击
-            dblclick        双击
-            textcontentmenu(在body) 文本菜单
-            contextmenu    //右键点击(06.html 2)
-            mouseover    放上
-            mouseout     离开
-            mousedown     按下
-            mouseup         抬起
-            mousemove      移动
+    文档：
+        load     加载   load中的内容在加载时最后执行(06.html 4)
+        unload   关闭    关闭或切换页面时触发
+        beforeunload    关闭之前
 
-        键盘：
-            keypress  键盘事件   指数字字母键，其余键无效
-            keyup      键盘抬起   
-            keydown   按下          此时所有的键都可以取到
-
-        文档：
-            load     加载   load中的内容在加载时最后执行(06.html 4)
-            unload   关闭    关闭或切换页面时触发
-            beforeunload    关闭之前
-
-        表单：
-            focus   获得焦点事件
-            blur     失去焦点事件
-            submit   提交事件
-            change   改变事件
-        其他事件：
-            scroll    滚动事件
-            selected  选择事件
+    表单：
+        focus   获得焦点事件
+        blur     失去焦点事件
+        submit   提交事件
+        change   改变事件
+    其他事件：
+        scroll    滚动事件
+        selected  选择事件
 
 
-    三、事件处理程序
-        有三种方法添加事件：
-            1.格式：<tag on事件="事件处理程序">(05.html 1)
-            2.
-                <script>
-                    对象.on事件=事件处理程序(05.html 2)
-                </script>
-            3.<script for="事件源id" event="事件">
-                    事件处理程序
-            </script>
+三、事件处理程序
+    有三种方法添加事件：
+        1.格式：&lt;tag on事件=&quot;事件处理程序&quot;/&gt;(05.html 1)
+        2.
+            &lt;script&gt;
+                对象.on事件=事件处理程序(05.html 2)
+            &lt;/script&gt;
+        3.&lt;script for=&quot;事件源id&quot; event=&quot;事件&quot;&gt;
+                事件处理程序
+        &lt;/script&gt;
 
-<pre><code>    &lt;body oncontextmenu=&quot;return false&quot;&gt;&lt;/body&gt;//可以屏蔽掉时间(06.html) 且必须用return false.用函数返回值的话要写成return tesat()
+    &lt;body oncontextmenu=&quot;return false&quot;&gt;&lt;/body&gt;//可以屏蔽掉时间(06.html) 且必须用return false.用函数返回值的话要写成return tesat()
 事件对象：event window.event
         属性：
             1.srcElement  //代表事件源对象
@@ -460,11 +369,11 @@ select标签:
 直接文本容器的scrollTop属性进行改动而不是文本的属性，(22.html)
 scrollLeft
 </code></pre><p>//用absolute布局可以是元素脱离文档流，<br>//用fixed布局可以使页面中某一元素的位置不随滚动条的改变而改变，此时fixed的<br>布局相对于HTML标签</p>
-<h6 id="大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"><a href="#大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。" class="headerlink" title="大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"></a>大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。</h6></tag></textarea>
+<h6 id="大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"><a href="#大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。" class="headerlink" title="大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"></a>大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。</h6>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/09/JS基础语法简述/" data-id="cj01yfwmh0002ako0zpek8c5n" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/09/JS基础语法简述/" data-id="cj01yijw40000x0o02tcg5hhf" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/03/09/JS基础语法简述/#ds-thread" class="article-comment-link">留言</a>
       
@@ -534,7 +443,7 @@ scrollLeft
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-js基本常识"><span class="toc-number">1.</span> <span class="toc-text">1.js基本常识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-函数"><span class="toc-number">2.</span> <span class="toc-text">2.函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：函数名不加-时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用-也可以直接var-test-function"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">注：函数名不加()时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用,也可以直接var test=function(){}</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-javascript对象"><span class="toc-number">3.</span> <span class="toc-text">3.javascript对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-浏览器对象"><span class="toc-number">4.</span> <span class="toc-text">6.浏览器对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。</span></a></li></ol></li></ol></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-js基本常识"><span class="toc-number">1.</span> <span class="toc-text">1.js基本常识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-函数"><span class="toc-number">2.</span> <span class="toc-text">2.函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：函数名不加-时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用-也可以直接var-test-function"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">注：函数名不加()时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用,也可以直接var test=function(){}</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-javascript对象"><span class="toc-number">3.</span> <span class="toc-text">3.javascript对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数组"><span class="toc-number">4.</span> <span class="toc-text">4.数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-DOM"><span class="toc-number">5.</span> <span class="toc-text">5.DOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-浏览器对象"><span class="toc-number">6.</span> <span class="toc-text">6.浏览器对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"><span class="toc-number">6.0.0.1.</span> <span class="toc-text">大家看到这里应该多JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。</span></a></li></ol></li></ol></li></ol></li></ol>
           </div>
       </div>
     </div>

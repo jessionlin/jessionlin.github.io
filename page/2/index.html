@@ -69,6 +69,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mongodb基本操作方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/mongodb基本操作方法/" class="article-date">
+  <time datetime="2017-03-01T07:17:10.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/mongodb基本操作方法/">mongodb基本操作方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>##一、mongodb简介<br>    mongodb属于文档型数据库，储存的是文档（Bson-&gt;json的二进制化）。我们熟知的MYSQL数据库，它的数据是以表的形式储存的，每条记录都具有相同的结构，这样使得查询起来很方便，但是却增加了空间的压力；文档型数据库如mongodb，其数据是以一条条文本的形式储存，每条数据不需要有相同的结构，这使得具有了良好的灵活性。同时，假如有书籍、书评、书评的回复等信息，如果将这些信息储存在传统型数据库如MYSQL中，至少需要张表，关联度极其复杂，然而在如mongodb的文档型数据库中，用户只需要将其写在同一个文档中即可。mongodb内部执行引擎为JS解释器, 把文档存储成bson结构,在查询时,转换为JS对象,并可以通过熟悉的js语法来操作，对于熟悉JS的道友来说，mongodb是一个值得选择的数据库</p>
+<h2 id="二、mongodb安装"><a href="#二、mongodb安装" class="headerlink" title="二、mongodb安装"></a>二、mongodb安装</h2><hr>
+<p>1.下载mongodb (<a href="https://www.mongodb.org" target="_blank" rel="external">https://www.mongodb.org</a> )<br>2.解压文件<br>3.不用编译，本身就是编译后的二进制可执行文件。<br><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%9B%BE%E7%89%871.png" alt="&quot;alt mongodb 文件夹介绍&quot;" title="mongodb 文件夹介绍"><br>4.启动mongod服务<br>进入mongodb的bin目录下，在命令行键入：<br><code>mongod --dbpath=e:/mongodb/data  --logpath=e:/mongodb/log1.log --fork --port=27017</code><br>参数解释：<br>mongod 表名你要执行的操作命令类型，有时候mongod命令无效，这时候使用<code>mongod.exe</code>即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">--dbpath 数据存储目录</div><div class="line">--logpath 日志存储目录</div><div class="line">--fork    运行端口（默认27017）</div><div class="line">--port    后台程序运行</div></pre></td></tr></table></figure></p>
+<h6 id="注：只有开启了mongo服务才可以进行数据库操作，开启服务后只需要键入mongo就可以进入mongodb操作面板"><a href="#注：只有开启了mongo服务才可以进行数据库操作，开启服务后只需要键入mongo就可以进入mongodb操作面板" class="headerlink" title="注：只有开启了mongo服务才可以进行数据库操作，开启服务后只需要键入mongo就可以进入mongodb操作面板"></a>注：只有开启了mongo服务才可以进行数据库操作，开启服务后只需要键入mongo就可以进入mongodb操作面板</h6><hr>
+<p>5.mongodb非常的占磁盘空间, 刚启动后要占3-4G左右,如果你用虚拟机练习,可能空间不够,导致无法启动.可以用 –smallfiles 选项来启动,将会占用较小空间  400M左右.</p>
+<p>###三、mongo入门命令<br><strong>1.基本操作</strong><br>1.1: <code>show dbs</code>  查看当前的数据库<br>1.2 <code>use databaseName</code> 选库<br>1.2 <code>show tables/collections</code> 查看当前库下的collection<br>1.3 如何创建库?<br>Mongodb的库是隐式创建,你可以use 一个不存在的库<br>然后在该库下创建collection,即可创建库<br>1.4 <code>db.createCollection(‘collectionName’)</code><br>创建collection<br>1.5 collection允许隐式创建<br><code>Db.collectionName.insert(document);</code><br>1.6 <code>db.collectionName.drop()</code><br>删除collection<br>1.7 <code>db.dropDatabase();</code><br>删除database</p>
+<p><strong>2.基本操作增删改查</strong><br>2..增: insert<br>介绍: mongodb存储的是文档,. 文档是json格式的对象.</p>
+<p>语法: <code>db.collectionName.isnert(document);</code></p>
+<p>2.2: 增加单篇文档<br><code>Db.collectionName.insert({title:’nice day’});</code></p>
+<p>2.3: 增加单个文档,并指定_id<br><code>Db.collectionName.insert({_id:8,age:78,name:’lisi’});</code></p>
+<p>2.4.增加多个文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">db.collectionName.insert(</div><div class="line">[</div><div class="line">&#123;time:&apos;friday&apos;,study:&apos;mongodb&apos;&#125;,</div><div class="line">&#123;_id:9,gender:&apos;male&apos;,name:&apos;QQ&apos;&#125;</div><div class="line">]</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>删:remove<br>语法: <code>db.collection.remove</code>(查询表达式, 选项);<br>选项是指 <code>{justOne:true/false}</code>,是否只删一行, 默认为false</p>
+<p>注意<br>1: 查询表达式依然是个json对象<br>2: 查询表达式匹配的行,将被删掉.<br>3: 如果不写查询表达式,collections中的所有文档将被删掉</p>
+<p>例1: <code>db.stu.remove({sn:’001’});</code><br>删除stu表中 sn属性值为’001’的文档 </p>
+<p>例2: <code>db.stu.remove({gender:’m’,true});</code><br>删除stu表中gender属性为m的文档,只删除1行.</p>
+<p><strong>3.update</strong><br>    改  update操作<br>    改谁? — 查询表达式<br>    改成什么样? – 新值 或 赋值表达式<br>    操作选项 —– 可选参数</p>
+<p>语法: <code>db.collection.update</code>(查询表达式,新值,选项);<br>例:<br><code>db.news.update({name:&#39;QQ&#39;},{name:&#39;MSN&#39;});</code><br>是指选中news表中,name值为QQ的文档,并把其文档值改为{name:’MSN’},<br>结果: 文档中的其他列也不见了,改后只有_id和name列了.<br>即–新文档直接替换了旧文档,而不是修改</p>
+<p>如果是想修改文档的某列,可以用$set关键字<br><code>db.collectionName.update(query,{$set:{name:’QQ’}})</code></p>
+<p>修改时的赋值表达式<br><code>$set</code>  修改某列的值<br><code>$unset</code> 删除某个列<br><code>$rename</code> 重命名某个列<br><code>$inc</code> 增长某个列<br><code>$setOnInsert</code> 当upsert为true时,并且发生了insert操作时,可以补充的字段.</p>
+<p><strong>4.Option</strong><br><code>{upsert:true/false,multi:true/false}</code><br>Upsert—是指没有匹配的行,则直接插入该行.(和mysql中的replace一样)</p>
+<p>例:<code>db.stu.update({name:&#39;wuyong&#39;},{$set:{name:&#39;junshiwuyong&#39;}},{upsert:true});</code><br>如果有name=’wuyong’的文档,将被修改<br>如果没有,将添加此新文档</p>
+<p>例:<br><code>db.news.update({_id:99},{x:123,y:234},{upsert:true});</code><br>没有_id=99的文档被修改,因此直接插入该文档</p>
+<p>multi: 是指修改多行(即使查询表达式命中多行,默认也只改1行,如果想改多行,可以用此选项)<br>例:<br><code>db.news.update({age:21},{$set:{age:22}},{multi:true});</code><br>则把news中所有age=21的文档,都修改</p>
+<p>查: find, findOne<br>语法: <code>db.collection.find(查询表达式,查询的列);</code><br><code>Db.collections.find(表达式,{列1:1,列2:1});</code></p>
+<p>例1:<code>db.stu.find()</code><br>查询所有文档 所有内容</p>
+<p>例2: <code>db.stu.find({},{gendre:1})</code><br>查询所有文档,的gender属性 (_id属性默认总是查出来)</p>
+<p>例3: <code>db.stu.find({},{gender:1, _id:0})</code><br>查询所有文档的gender属性,且不查询_id属性</p>
+<p>例3: <code>db.stu.find({gender:’male’},{name:1,_id:0});</code><br>查询所有gender属性值为male的文档中的name属性</p>
+<p><strong>5.查询表达式:</strong></p>
+<p>5.1: 最简单的查询表达式<br><code>{filed:value}</code>,是指查询field列的值为value的文档</p>
+<p>5.2: <code>$ne --- != 查询表达式</code><br><code>{field:{$nq:value}}</code><br>作用–查filed列的值 不等于 value 的文档</p>
+<p>5.3: <code>$nin --&gt; not in</code></p>
+<p>5.4: <code>$all</code><br>语法: <code>{field:{$all:[v1,v2..]}}</code><br>是指取出 field列是一个数组,且至少包含 v1,v2值</p>
+<p>5.5: <code>$exists</code><br>语法: <code>{field:{$exists:1}}</code><br>作用: 查询出含有field字段的文档</p>
+<p>5.6: <code>$nor</code><br><code>{$nor,[条件1,条件2]}</code><br>是指  所有条件都不满足的文档为真返回</p>
+<p>5.7:用正则表达式查询 以”诺基亚”开头的商品<br>例:<code>db.goods.find({goods_name:/诺基亚.*/},{goods_name:1});</code></p>
+<p>5.8: 用$where表达式来查询<br>例: <code>db.goods.find({$where:&#39;this.cat_id != 3 &amp;&amp; this.cat_id != 11&#39;});</code></p>
+<p>注意: 用$where查询时, mongodb是把bson结构的二进制数据转换为json结构的对象,<br>然后比较对象的属性是否满足表达式.</p>
+<p>速度较慢</p>
+<p><strong>6.Update时可用的操作符</strong><br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;db.user.insert(&#123;name:&apos;lisi&apos;,age:12,sex:&apos;male&apos;,height:123,area:&apos;haidian&apos;&#125;);</div><div class="line">-&gt;db.user.update(&#123;name:&apos;lisi&apos;&#125;,&#123;$set:&#123;area:&apos;chaoyang&apos;&#125;,$unset:&#123;height:1&#125;,$inc:&#123;age:1&#125;,$rename:&#123;sex:&apos;gender&apos;&#125;&#125;);</div><div class="line">&gt; db.user.find();</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;51fc01c4f5de93e1f2856e33&quot;), &quot;age&quot; : 13, &quot;area&quot; : &quot;chaoyang&quot;, &quot;gender&quot; : &quot;male&quot;, &quot;name&quot; : &quot;lisi&quot; &#125;</div></pre></td></tr></table></figure></p>
+<p>$setOnInsert -&gt;相当于mysql中的列的默认值</p>
+<p><strong>7.声明游标:</strong><br>7.1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var cursor =  db.collectioName.find(query,projection);</div><div class="line">Cursor.hasNext() ,判断游标是否已经取到尽头</div><div class="line">Cursor. Next() , 取出游标的下1个单元</div></pre></td></tr></table></figure></p>
+<p>7.2 用while来循环游标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; var mycursor = db.bar.find(&#123;_id:&#123;$lte:5&#125;&#125;)</div><div class="line">&gt; while(mycursor.hasNext()) &#123;</div><div class="line">... printjson(mycursor.next());</div><div class="line">... &#125;</div></pre></td></tr></table></figure></p>
+<p>7.3<br>// 声明游标<br><code>var cursor = db.goods.find();</code><br>// 循环游标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for(var doc=true;cursor.hasNext();) &#123; printjson(cursor.next());&#125;</div></pre></td></tr></table></figure></p>
+<p>也可以简写:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for(var  cursor=db.goods.find(), doc=true;cursor.hasNext();) &#123; printjson(cursor.next());&#125;</div></pre></td></tr></table></figure></p>
+<p>7.4 游标还有一个迭代函数,允许我们自定义回调函数来逐个处理每个单元.<br><code>cursor.forEach(回调函数);</code><br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; var gettitle = function(obj) &#123;print(obj.goods_name)&#125;</div><div class="line">&gt; var cursor = db.goods.find();</div><div class="line">&gt; cursor.forEach(gettitle);</div></pre></td></tr></table></figure></p>
+<p>7.5 游标在分页中的应用<br>比如查到10000行,跳过100页,取10行.<br>一般地,我们假设每页N行, 当前是page页<br>就需要跳过前 (page-1)*N 行, 再取N行, 在mysql中, limit offset,N来实现<br>在mongo中,用skip(), limit()函数来实现的</p>
+<p>如 <code>var mycursor = db.bar.find().skip(9995);</code><br>则是查询结果中,跳过前9995行</p>
+<p>查询第901页,每页10条<br>则是 <code>varmytcursor=db.bar.find().skip(9000).limit(10);</code></p>
+<p>7.6 通过cursor一次性得到所有数据, 并返回数组.<br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;var cursor = db.goods.find();</div><div class="line">&gt; printjson(cursor.toArray());  //看到所有行</div><div class="line">&gt; printjson(cursor.toArray()[2]);  //看到第2行</div></pre></td></tr></table></figure></p>
+<p>注意: 不要随意使用toArray()<br>原因: 会把所有的行立即以对象形式组织在内存里.<br>可以在取出少数几行时,用此功能.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cj01zm68u0008cgo0poq51rek" class="article-share-link">分享</a>
+      
+        <a href="http://yoursite.com/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
+  
     <article id="post-hexo-gitpage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/28/hexo-gitpage/" class="article-date">
@@ -119,7 +213,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cj01zfxu20004pso0rpx9fgac" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cj01zm68k0005cgo06wfei3ug" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">留言</a>
       
@@ -214,7 +308,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cj01zfxu50005pso0ovbwh87t" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cj01zm68m0006cgo05dtkq1x2" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">留言</a>
       
@@ -255,6 +349,10 @@ k. *package.json*文件在node中已介绍
       <ul>
         
           <li>
+            <a href="/2017/03/09/PS常用技能/">PS常用技能</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/09/PS常用快捷键/">PS常用快捷键</a>
           </li>
         
@@ -268,10 +366,6 @@ k. *package.json*文件在node中已介绍
         
           <li>
             <a href="/2017/03/05/Vuejs-Prop基本用法/">Vuejs Prop基本用法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/04/vuejs表单控件绑定/">vuejs表单控件绑定</a>
           </li>
         
       </ul>

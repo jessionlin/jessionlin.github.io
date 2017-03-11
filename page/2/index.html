@@ -69,6 +69,136 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vue事件处理器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/04/vue事件处理器/" class="article-date">
+  <time datetime="2017-03-04T04:14:14.000Z" itemprop="datePublished">2017-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/04/vue事件处理器/">vue事件处理器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="1-监听事件"><a href="#1-监听事件" class="headerlink" title="1.监听事件"></a>1.监听事件</h2><p>可以用<code>v-on</code>指令监听DOM事件来触发一些JavaScript代码<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example-1&quot;&gt;</div><div class="line">  &lt;button v-on:click=&quot;counter += 1&quot;&gt;增加 1&lt;/button&gt;</div><div class="line">  &lt;p&gt;这个按钮被点击了 &#123;&#123; counter &#125;&#125; 次。&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example1 = new Vue(&#123;</div><div class="line">  el: &apos;#example-1&apos;,</div><div class="line">  data: &#123;</div><div class="line">    counter: 0</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>你每点击一下按钮，下方的数字就增加1；直接采用js代码内嵌的方式，将<code>count += 1</code>直接写入到标签中。</p>
+<h2 id="2-方法事件处理器"><a href="#2-方法事件处理器" class="headerlink" title="2.方法事件处理器"></a>2.方法事件处理器</h2><p>当JavaScript比较少的时候直接将其写入<code>v-on</code>中是完全可以的，但是如果JavaScript代码量比较大的话，这样写就有些反人类了，因此<code>v-on</code>可以接受一个定义的方法来调用<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example-2&quot;&gt;</div><div class="line">  &lt;!-- `greet` 是在下面定义的方法名 --&gt;</div><div class="line">  &lt;button v-on:click=&quot;greet&quot;&gt;Greet&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example2 = new Vue(&#123;</div><div class="line">  el: &apos;#example-2&apos;,</div><div class="line">  data: &#123;</div><div class="line">    name: &apos;Vue.js&apos;</div><div class="line">  &#125;,</div><div class="line">  // 在 `methods` 对象中定义方法</div><div class="line">  methods: &#123;</div><div class="line">    greet: function (event) &#123;</div><div class="line">      // `this` 在方法里指当前 Vue 实例</div><div class="line">      alert(&apos;Hello &apos; + this.name + &apos;!&apos;)</div><div class="line">      // `event` 是原生 DOM 事件</div><div class="line">      alert(event.target.tagName)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// 也可以用 JavaScript 直接调用方法</div><div class="line">example2.greet() // -&gt; &apos;Hello Vue.js!&apos;</div></pre></td></tr></table></figure>
+<p>这里直接将JS代码转移到script标签中统一编写，更加方便维护</p>
+<h2 id="3-内联处理器方法"><a href="#3-内联处理器方法" class="headerlink" title="3.内联处理器方法"></a>3.内联处理器方法</h2><p>除了直接绑定一个方法，也可以用内联JavaScript语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example-3&quot;&gt;</div><div class="line">  &lt;button v-on:click=&quot;say(&apos;hi&apos;)&quot;&gt;Say hi&lt;/button&gt;</div><div class="line">  &lt;button v-on:click=&quot;say(&apos;what&apos;)&quot;&gt;Say what&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#example-3&apos;,</div><div class="line">  methods: &#123;</div><div class="line">    say: function (message) &#123;</div><div class="line">      alert(message)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>有时候我们会遇到需要在内敛语句处理器中访问原声DOM事件的情况，这时候我们可以用特殊变量$event把它传入方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;button v-on:click=&quot;warn(&apos;Form cannot be submitted yet.&apos;, $event)&quot;&gt;Submit&lt;/button&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">// ...</div><div class="line">methods: &#123;</div><div class="line">  warn: function (message, event) &#123;</div><div class="line">    // 现在我们可以访问原生事件对象</div><div class="line">    if (event) event.preventDefault()</div><div class="line">    alert(message)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>event具体的方法调用见事件修饰符</p>
+<h2 id="4-事件修饰符"><a href="#4-事件修饰符" class="headerlink" title="4.事件修饰符"></a>4.事件修饰符</h2><p>在事件处理程序中调用<code>event.preventDefault()</code>或<code>event.stopDefault()</code>是非常常见的需求。methods虽然也可以轻松实现上述功能，但是methods只有纯粹的数据逻辑二不是去处理DOM事件细节。<br>因此，Vue.js为<code>v-on</code>提供了事件修饰符。通过由点(.)表示的指令后缀来调用修饰符。<br><code>.stop</code><br><code>.prevent</code><br><code>.capture</code><br><code>.self</code><br><code>.once</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 阻止单击事件冒泡</div><div class="line">&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;</div><div class="line">// 提交事件不再重载页面</div><div class="line">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</div><div class="line">// 修饰符可以串联</div><div class="line">&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;</div><div class="line">// 只有修饰符</div><div class="line">&lt;form v-on:submit.prevent&gt;&lt;/form&gt;</div><div class="line">// 添加事件侦听器时使用事件捕获模式</div><div class="line">&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;</div><div class="line">// 只当事件在该元素本身（而不是子元素）触发时触发回调</div><div class="line">&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;</div><div class="line"></div><div class="line">//the click event will be triggered at most once</div><div class="line">&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>新添加的<code>.once</code>可以之间用在组件events上</p>
+<h2 id="5-按键修饰符"><a href="#5-按键修饰符" class="headerlink" title="5.按键修饰符"></a>5.按键修饰符</h2><p>在监听键盘事件时，我们经常需要监测常见的键值。Vue允许为<code>v-on</code>在监听事件时添加按键修饰符：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//只有在 keyCode 是 13 时调用 vm.submit()</div><div class="line">&lt;input v-on:keyup.13=&quot;submit&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>想要记住所有的keycode比较困难，所以vue为最常用的按键提供了别名，<br><code>&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;</code></p>
+<p>全部的按键别名：<br><code>.enter</code><br><code>.tab</code><br><code>.delete</code><br><code>.esc</code><br><code>.space</code><br><code>.up</code><br><code>.down</code><br><code>.left</code><br><code>.right</code><br>可以通过全局<code>config.keyCodes</code> 对象自定义按键修饰符别名<br><code>Vue.config.keyCodes.f1 = 112</code><br>可以用如下修饰符开启鼠标或键盘事件监听，使在按键按下时发生响应。<br><code>.ctrl</code><br><code>.alt</code><br><code>.shift</code><br><code>.meta</code></p>
+<h2 id="6-使用v-on的好处"><a href="#6-使用v-on的好处" class="headerlink" title="6.使用v-on的好处"></a>6.使用<code>v-on</code>的好处</h2><p>1.扫一眼HTML模板便能轻松定位在JavaScript代码里对应的方法<br>2.无需再JavaScript里手动绑定事件，viewModel代码尅是非常纯粹的逻辑，和DOM完全解耦，更易于测试。<br>3.当一个viewModel被销毁时，所有的时间处理器都会自动被删除。无须担心如何自己清理它们</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/04/vue事件处理器/" data-id="cj04tk1v2000fi0o0amqhmf6u" class="article-share-link">分享</a>
+      
+        <a href="http://yoursite.com/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
+  
+    <article id="post-vuejs-基本操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/vuejs-基本操作/" class="article-date">
+  <time datetime="2017-03-02T12:38:06.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/vuejs-基本操作/">vuejs 基本操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>1.在本地创建一个HTML文件，然后直接引用vue.js文件<br> <code>&lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code><br>2.在node环境下可以直接用<br> <code>npm install vue-cli</code> 但是这种方式并不推荐使用，尤其是多nodejs构建工具不够了解的同学</p>
+<h2 id="二、渲染"><a href="#二、渲染" class="headerlink" title="二、渲染"></a>二、渲染</h2><p>1.声明式渲染<br>Vue.js简单地说就是创建一个简洁的模板来声明式的将数据渲染进DOM的系统：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">&#123;&#123;message&#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#app&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	message:&apos;Hello Vue!&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终在浏览器会显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello Vue!</div></pre></td></tr></table></figure></p>
+<p>除了绑定插入的文本内容，我们还可以采用这样的方式绑定 DOM 元素属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line"> &lt;span v-bind:title=&quot;message&quot;&gt;</div><div class="line"> 	Hello world!</div><div class="line"> &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#example&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	message:&quot;Jessionlin study Vuejs not very long&quot;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello world!</div></pre></td></tr></table></figure>
+<p>表面上并没有什么特殊的地方，但是我们发现了一个‘v-属性’结构，它的作用是在渲染过程的DOM上应用特殊的响应式行为，即将这个元素节点的title属性和Vue实例的message属性绑定到一起，当鼠标到达’Hello World!’标签所在位置时，data.message中的内容就会显示出来，此时如果在console中键入example.message = “hello world!”,重复上述操作室会发现这次显示出来的是hello world!<br>对于这种情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;img v-bind:src=&quot;imgSrc&quot; v-bind:alt=&quot;imgAlt&quot; v-bind:title=&quot;imgTitle&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>大家肯定会觉得写这么多<code>v-bind</code>会很麻烦，而且看着也比较混乱，不过我们有一种更简单的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img :src=&quot;imgSrc&quot; :alt=&quot;imgAlt&quot; :title=&quot;imgTitle&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>这样效果是相同的，是不是简单多了？</p>
+<h2 id="三、条件与循环"><a href="#三、条件与循环" class="headerlink" title="三、条件与循环"></a>三、条件与循环</h2><p>1.vuejs的条件判断也很简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">	&lt;p v-if=&quot;seen&quot;&gt;Hello World!&lt;/p&gt;</div><div class="line">    &lt;p v-if=&quot;seen-not&quot;&gt;Hello Man!&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example=new Vue(&#123;</div><div class="line">	el:&quot;example&quot;,</div><div class="line">    data:&#123;</div><div class="line">    	seen:true,</div><div class="line">        seen-not:false</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终显示结果为<br><code>Hello World!</code><br>2.循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">	&lt;ol&gt;</div><div class="line">    	&lt;li v-for=&quot;todo in todos&quot;&gt;</div><div class="line">        	&#123;&#123;todo.text&#125;&#125;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;example&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	todos:[</div><div class="line">        	&#123;text:&apos;Hello World&apos;&#125;,</div><div class="line">            &#123;text:&apos;Hello Man&apos;&#125;,</div><div class="line">            &#123;text:&apos;Learn Vuejs&apos;&#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终的输出是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.Hello World</div><div class="line">2.Hello Man</div><div class="line">3.Learn Vuejs</div></pre></td></tr></table></figure></p>
+<p>如果此时在console控制台中输入example.todos.push({text:’Jessionlin is learning Vuejs’})</p>
+<p>则最终的输出为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.Hello World</div><div class="line">2.Hello Man</div><div class="line">3.Learn Vuejs</div><div class="line">4.Jessionlin is learning Vuejs</div></pre></td></tr></table></figure></p>
+<h2 id="四、处理用户输入"><a href="#四、处理用户输入" class="headerlink" title="四、处理用户输入"></a>四、处理用户输入</h2><p>1.v-on指令可以绑定一个简体那时间用于调用我们Vue实例中定义的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">	&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;button v-on:click=&quot;reverses&quot;&gt;reverse&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&quot;example&quot;,</div><div class="line">    data:&#123;</div><div class="line">    	message:&apos;Hello Vue.js&apos;</div><div class="line">    &#125;，</div><div class="line">    methods:&#123;</div><div class="line">    	reverses:function()&#123;</div><div class="line">        	this.message = this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终结果是<br><img src="http://om4k2r3sl.bkt.clouddn.com/Vue.png" alt="alt text" title="vue"><br>2.v-model 使得在表单输入和应用状态中做双向数据绑定变得非常轻巧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">	&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;input v-model=&quot;message&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&quot;example&quot;,</div><div class="line">    data:&#123;</div><div class="line">    	message:&quot;Hello Vue!&quot;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终结果：<br><img src="http://om4k2r3sl.bkt.clouddn.com/input-vue.png" alt="alt text" title="vue"></p>
+<h2 id="五、用组件构建（应用）"><a href="#五、用组件构建（应用）" class="headerlink" title="五、用组件构建（应用）"></a>五、用组件构建（应用）</h2><p>在Vue中，一个组件实质上是一个拥有预定义选项的一个Vue实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	template:&apos;&lt;li&gt;This is a todo&lt;/li&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>然后我们就可以在另一个组件模板中写入它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;ol&gt;</div><div class="line">  &lt;todo-item&gt;&lt;/todo-item&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure></p>
+<p>但是此时所有的子组件全都具有相同的文本，操作起来不是太好，我们应该将数据从父作用域传到子组件。那么我们添加一个prop字段，表示属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	props:[&apos;todo&apos;],</div><div class="line">	template:&apos;&lt;li&gt;This is a todo&lt;/li&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>现在，我们可以使用v-bind指令将todo传到每一个重复的组件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;todo-item v-for=&quot;item in groceryList&quot; v-bind:todo=&quot;item&quot;&gt;&lt;/todo-item&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//JS</div><div class="line">Vue.component(&apos;todo-item&apos;,&#123;</div><div class="line">	props:[&apos;todo&apos;],</div><div class="line">    template:&apos;&lt;li&gt;&#123;&#123;todo.text&#125;&#125;&lt;/li&gt;&apos;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">	el:&apos;#example&apos;,</div><div class="line">    data:&#123;</div><div class="line">    	groceryList:[</div><div class="line">        	&#123; text: &apos;Vegetables&apos; &#125;,</div><div class="line">      		&#123; text: &apos;Cheese&apos; &#125;,</div><div class="line">     		&#123; text: &apos;Whatever else humans are supposed to eat&apos; &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.Vegetables</div><div class="line">2.Cheese</div><div class="line">3.Whatever else humans are supposed to eat</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/vuejs-基本操作/" data-id="cj04tk1uu000bi0o0cvdb6xw9" class="article-share-link">分享</a>
+      
+        <a href="http://yoursite.com/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
+  
     <article id="post-node配置与安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/01/node配置与安装/" class="article-date">
@@ -118,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cj02gmo440004uwo0yasiydfw" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/01/node配置与安装/" data-id="cj04tk1us000ai0o0h2yln7ow" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">留言</a>
       
@@ -212,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cj02gmo4m000buwo0ga9x35dw" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/03/01/mongodb基本操作方法/" data-id="cj04tk1up0009i0o0uopk03nq" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">留言</a>
       
@@ -277,7 +407,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cj02gmo3o0002uwo0e3rfrd56" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/28/hexo-gitpage/" data-id="cj04tk1uo0008i0o0xgj5s60q" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">留言</a>
       
@@ -372,7 +502,7 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cj02gmo3r0003uwo0j8t3qqa1" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/02/27/markdown-基本用法/" data-id="cj04tk1ui0007i0o0x8z5p9uo" class="article-share-link">分享</a>
       
         <a href="http://yoursite.com/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">留言</a>
       
@@ -413,6 +543,14 @@ k. *package.json*文件在node中已介绍
       <ul>
         
           <li>
+            <a href="/2017/03/11/PS学习前言/">PS学习前言</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/11/PS之移动工具/">PS之移动工具</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/09/svg基本语法/">svg基本语法</a>
           </li>
         
@@ -422,14 +560,6 @@ k. *package.json*文件在node中已介绍
         
           <li>
             <a href="/2017/03/09/PS常用快捷键/">PS常用快捷键</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/09/PHP部分常用函数/">PHP部分常用函数</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/09/JS基础语法简述/">JS基础语法简述</a>
           </li>
         
       </ul>

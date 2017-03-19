@@ -41,7 +41,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jessionlin.github.io"></form>
@@ -98,14 +98,23 @@
 <h2 id="1-通配选择器"><a href="#1-通配选择器" class="headerlink" title="1.通配选择器"></a>1.通配选择器</h2><p>通配选择器（*）用来选择所有元素，当然也可以选择某个元素下的所有元素。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding:0&#125;</div></pre></td></tr></table></figure></p>
 <p>为了更好地说明问题，通过CSS3选择器中的通配选择器来改变列表中的所有子项的背景色设置为orange。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div></pre></td></tr></table></figure></p>
 <p>此时元素类名为demo下的所有元素都将背景色设置为橙色，如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jiben2.png" alt="alt text"></p>
-<p>未完成 待续</p>
+<h2 id="2-元素选择器"><a href="#2-元素选择器" class="headerlink" title="2.元素选择器"></a>2.元素选择器</h2><p>元素选择器（E）是CSS选择器中最常见的、最基本的选择器。文档元素包括html、body、p、div等，如示例中的ul、li也属于HTML元素。接下来通过ul元素选择器改变整个列表的背景色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div></pre></td></tr></table></figure></p>
+<p>此时列表ul的背景色将变成灰色，如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu3.png" alt="alt text"></p>
+<h2 id="3-ID选择器"><a href="#3-ID选择器" class="headerlink" title="3.ID选择器"></a>3.ID选择器</h2><p>在使用ID选择器之前，需要在HTML文档中给对应的元素设置id属性并设置其值，才能找到对应的元素。ID具有唯一性，使用时，需要在id属性前加上’#’。在下面的事例中，我们可以轻松地看到列表中的第一项和最后一项分别定义了一个id，其值分别为“first”和“last”。使用这两个id值来改变列表项中第一个和最后一个列表项的背景色和前景色，代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div></pre></td></tr></table></figure></p>
+<p>页面效果如下：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu4.png" alt="alt text"></p>
+<h2 id="4-类选择器"><a href="#4-类选择器" class="headerlink" title="4.类选择器"></a>4.类选择器</h2><p>类选择器（.class）是以独立于文档元素的方式来指定元素样式。使用方法与ID选择器极其类似，首先在HTML给需要的元素定义class属性，并为其设置属性值。类选择器在一个页面中可以有多个相同的类名，而ID选择器其ID值在整个页面中是唯一的一个。下面改变item的风格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div><div class="line"></div><div class="line">.item&#123;background:green;color:#font-weight:bold&#125;</div></pre></td></tr></table></figure></p>
+<p>效果如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu5.png" alt="alt text"><br>上面是类选择器的简单使用，其实类选择器还有一种使用方法，就是多类选择器。通过两个或两个以上类选择器合并，来定义有别于一个类名的元素效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div><div class="line"></div><div class="line">.item&#123;background:green;color:#font-weight:bold&#125;</div><div class="line">.item.important&#123;background:red&#125;</div></pre></td></tr></table></figure></p>
+<p>效果如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu6.png" alt="alt text"></p>
+<p>使用多类选择器时，大家需要注意，如果一个多类选择器包含类名中的其中有一个不存在，则匹配失败，示例中的item和important两个类名有一个不存在的话都会匹配失败。</p>
+<p>类名可以同时绑定在多种不同元素标签上，如在同一个HTML文档中，div元素可以绑定item，ul也可以绑定item……，如果想要获取某种特定标签中的item，如ul上的item，则可以用：<code>ul.block{background:red}</code></p>
+<h2 id="5-群组选择器（selector1-selectorN"><a href="#5-群组选择器（selector1-selectorN" class="headerlink" title="5.群组选择器（selector1,selectorN)"></a>5.群组选择器（selector1,selectorN)</h2><p>群组选择器是将具有相同样式的元素分组在一起，每个选择器之间用逗号隔开。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/19/基本选择器语法/" data-id="cj0gn9tlm000ewso0y53td49g" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/19/基本选择器语法/" data-id="cj0gujfv2000eswo02s8lyitl" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/19/基本选择器语法/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/19/基本选择器语法/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -149,7 +158,7 @@
 <p><img src="http://om4k2r3sl.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
 <hr>
 <pre><code>下面将对这些选择器一一介绍
-</code></pre><h1 id="二、选择器用法"><a href="#二、选择器用法" class="headerlink" title="二、选择器用法"></a>二、选择器用法</h1><h2 id="1-基本选择器"><a href="#1-基本选择器" class="headerlink" title="1.基本选择器"></a>1.基本选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+</code></pre><h1 id="二、选择器用法"><a href="#二、选择器用法" class="headerlink" title="二、选择器用法"></a>二、选择器用法</h1><h2 id="1-基本选择器"><a href="#1-基本选择器" class="headerlink" title="1.基本选择器"></a>1.基本选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"><br>详细讲解请见<a href="https://jessionlin.github.io/2017/03/19/%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%AD%E6%B3%95/">基本选择器语法</a></p>
 <h2 id="2-层次选择器"><a href="#2-层次选择器" class="headerlink" title="2.层次选择器"></a>2.层次选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
 <h2 id="3-动态伪类选择器"><a href="#3-动态伪类选择器" class="headerlink" title="3.动态伪类选择器"></a>3.动态伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%8A%A8%E6%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
 <h2 id="4-目标伪类选择器"><a href="#4-目标伪类选择器" class="headerlink" title="4.目标伪类选择器"></a>4.目标伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E7%9B%AE%E6%A0%87%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
@@ -161,9 +170,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/19/CSS3选择器/" data-id="cj0gn9tez0000wso02brlmsu3" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/19/CSS3选择器/" data-id="cj0gujfrl0000swo0ejlkjsp8" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/19/CSS3选择器/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/19/CSS3选择器/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -208,9 +217,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/17/PS蒙版/" data-id="cj0gn9tkk0009wso0covit81s" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/17/PS蒙版/" data-id="cj0gujftb0006swo0uaikd9qy" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/17/PS蒙版/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/17/PS蒙版/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -260,9 +269,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/15/PS选区/" data-id="cj0gn9thy0007wso0nrb95s9l" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/15/PS选区/" data-id="cj0gujfsv0005swo0o4ovcqml" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/15/PS选区/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/15/PS选区/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -304,9 +313,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/11/PS学习前言/" data-id="cj0gn9thb0005wso0kowizzfy" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/11/PS学习前言/" data-id="cj0gujfsv0004swo0zh8dbb7m" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/11/PS学习前言/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/11/PS学习前言/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -348,9 +357,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/11/PS之移动工具/" data-id="cj0gn9th40004wso067mfv845" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/11/PS之移动工具/" data-id="cj0gujfsg0003swo0oxmpjibp" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/11/PS之移动工具/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/11/PS之移动工具/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -428,9 +437,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/09/svg基本语法/" data-id="cj0gn9tm8000gwso0zqh9jd3a" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/09/svg基本语法/" data-id="cj0gujfum000dswo0v25t0itx" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/09/svg基本语法/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/09/svg基本语法/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -477,9 +486,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/09/PS常用技能/" data-id="cj0gn9tgz0003wso00b1yak3i" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/09/PS常用技能/" data-id="cj0gujfu6000bswo0fh8iidvj" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/09/PS常用技能/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/09/PS常用技能/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -524,9 +533,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/09/PS常用快捷键/" data-id="cj0gn9tme000hwso0p3h5guex" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/09/PS常用快捷键/" data-id="cj0gujfu6000aswo0v90pbu0h" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/09/PS常用快捷键/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/09/PS常用快捷键/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -576,9 +585,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/" data-id="cj0gn9tg70001wso0s3ly060g" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/" data-id="cj0gujfsg0002swo0uxl16nn4" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -594,7 +603,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页&raquo;</a>
   </nav>
 </section>
            
@@ -633,7 +642,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">Recent Posts</h3>
+    <h3 class="widget-title recent-posts">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -664,7 +673,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title lastest-comments">Latest Comments</h3>
+    <h3 class="widget-title lastest-comments">最新评论</h3>
     <div class="widget">
          <div class="hot-comments">
     <!-- 多说最新评论 start -->
@@ -681,7 +690,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title archive">Archives</h3>
+    <h3 class="widget-title archive">归档</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li></ul>
     </div>
@@ -697,10 +706,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
-      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;1754317747@qq.com
+      联系方式&nbsp;|&nbsp;1754317747@qq.com
     </div>
   </div>
 </footer>

@@ -13,7 +13,11 @@
 <meta property="og:description" content="基本选择器是CSS3所有选择器中效果最好的一种，所有的浏览器均支持基本选择器，因此在以后的开发和学习中可以放心地使用。下面我们在实战中体会基本选择器的用法：我们先将基本的框架搭出来123456789101112131415161718192021222324252627282930&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en-US&amp;quot;&amp;gt;&amp;lt">
 <meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jiben1.png">
 <meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jiben2.png">
-<meta property="og:updated_time" content="2017-03-19T12:12:46.641Z">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jichu3.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jichu4.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jichu5.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/jichu6.png">
+<meta property="og:updated_time" content="2017-03-19T15:31:28.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基本选择器语法">
 <meta name="twitter:description" content="基本选择器是CSS3所有选择器中效果最好的一种，所有的浏览器均支持基本选择器，因此在以后的开发和学习中可以放心地使用。下面我们在实战中体会基本选择器的用法：我们先将基本的框架搭出来123456789101112131415161718192021222324252627282930&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en-US&amp;quot;&amp;gt;&amp;lt">
@@ -45,7 +49,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jessionlin.github.io"></form>
@@ -100,14 +104,23 @@
 <h2 id="1-通配选择器"><a href="#1-通配选择器" class="headerlink" title="1.通配选择器"></a>1.通配选择器</h2><p>通配选择器（*）用来选择所有元素，当然也可以选择某个元素下的所有元素。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding:0&#125;</div></pre></td></tr></table></figure></p>
 <p>为了更好地说明问题，通过CSS3选择器中的通配选择器来改变列表中的所有子项的背景色设置为orange。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div></pre></td></tr></table></figure></p>
 <p>此时元素类名为demo下的所有元素都将背景色设置为橙色，如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jiben2.png" alt="alt text"></p>
-<p>未完成 待续</p>
+<h2 id="2-元素选择器"><a href="#2-元素选择器" class="headerlink" title="2.元素选择器"></a>2.元素选择器</h2><p>元素选择器（E）是CSS选择器中最常见的、最基本的选择器。文档元素包括html、body、p、div等，如示例中的ul、li也属于HTML元素。接下来通过ul元素选择器改变整个列表的背景色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div></pre></td></tr></table></figure></p>
+<p>此时列表ul的背景色将变成灰色，如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu3.png" alt="alt text"></p>
+<h2 id="3-ID选择器"><a href="#3-ID选择器" class="headerlink" title="3.ID选择器"></a>3.ID选择器</h2><p>在使用ID选择器之前，需要在HTML文档中给对应的元素设置id属性并设置其值，才能找到对应的元素。ID具有唯一性，使用时，需要在id属性前加上’#’。在下面的事例中，我们可以轻松地看到列表中的第一项和最后一项分别定义了一个id，其值分别为“first”和“last”。使用这两个id值来改变列表项中第一个和最后一个列表项的背景色和前景色，代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div></pre></td></tr></table></figure></p>
+<p>页面效果如下：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu4.png" alt="alt text"></p>
+<h2 id="4-类选择器"><a href="#4-类选择器" class="headerlink" title="4.类选择器"></a>4.类选择器</h2><p>类选择器（.class）是以独立于文档元素的方式来指定元素样式。使用方法与ID选择器极其类似，首先在HTML给需要的元素定义class属性，并为其设置属性值。类选择器在一个页面中可以有多个相同的类名，而ID选择器其ID值在整个页面中是唯一的一个。下面改变item的风格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div><div class="line"></div><div class="line">.item&#123;background:green;color:#font-weight:bold&#125;</div></pre></td></tr></table></figure></p>
+<p>效果如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu5.png" alt="alt text"><br>上面是类选择器的简单使用，其实类选择器还有一种使用方法，就是多类选择器。通过两个或两个以上类选择器合并，来定义有别于一个类名的元素效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding: 0;&#125;</div><div class="line">		.clearfix:after,.clearfix:before&#123;display: table;content:&quot;&quot;&#125;</div><div class="line">		.clearfix:after&#123;clear: both;overflow: hidden&#125;</div><div class="line">		.demo&#123;width: 250px;border:1px solid #ccc;padding: 10px;margin: 20px auto&#125;</div><div class="line">		li&#123;list-style: none outside none ;float: left;height: 20px;</div><div class="line">			line-height: 20px;width: 20px;border-radius: 10px;cursor: pointer;</div><div class="line">			text-align:center; background: #f36;color: green;margin-right: 5px;&#125;</div><div class="line"></div><div class="line">.demo *&#123;background:orange&#125;</div><div class="line">ul&#123;background:grey&#125;</div><div class="line"></div><div class="line">#first&#123;background:lime;color:#000&#125;</div><div class="line">#last&#123;background:#000;color:lime&#125;</div><div class="line"></div><div class="line">.item&#123;background:green;color:#font-weight:bold&#125;</div><div class="line">.item.important&#123;background:red&#125;</div></pre></td></tr></table></figure></p>
+<p>效果如图：<br><img src="http://om4k2r3sl.bkt.clouddn.com/jichu6.png" alt="alt text"></p>
+<p>使用多类选择器时，大家需要注意，如果一个多类选择器包含类名中的其中有一个不存在，则匹配失败，示例中的item和important两个类名有一个不存在的话都会匹配失败。</p>
+<p>类名可以同时绑定在多种不同元素标签上，如在同一个HTML文档中，div元素可以绑定item，ul也可以绑定item……，如果想要获取某种特定标签中的item，如ul上的item，则可以用：<code>ul.block{background:red}</code></p>
+<h2 id="5-群组选择器（selector1-selectorN"><a href="#5-群组选择器（selector1-selectorN" class="headerlink" title="5.群组选择器（selector1,selectorN)"></a>5.群组选择器（selector1,selectorN)</h2><p>群组选择器是将具有相同样式的元素分组在一起，每个选择器之间用逗号隔开。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/19/基本选择器语法/" data-id="cj0gn9tlm000ewso0y53td49g" class="article-share-link">Share</a>
+      <a data-url="https://jessionlin.github.io/2017/03/19/基本选择器语法/" data-id="cj0gujfv2000eswo02s8lyitl" class="article-share-link">分享</a>
       
-        <a href="https://jessionlin.github.io/2017/03/19/基本选择器语法/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://jessionlin.github.io/2017/03/19/基本选择器语法/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -119,7 +132,7 @@
   
   
     <a href="/2017/03/19/CSS3选择器/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">CSS3选择器</div>
     </a>
   
@@ -173,9 +186,9 @@
     
       <div class="widget" id="toc-widget-fixed">
       
-        <strong class="toc-title">Content</strong>
+        <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通配选择器"><span class="toc-number">1.</span> <span class="toc-text">1.通配选择器</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通配选择器"><span class="toc-number">1.</span> <span class="toc-text">1.通配选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-元素选择器"><span class="toc-number">2.</span> <span class="toc-text">2.元素选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-ID选择器"><span class="toc-number">3.</span> <span class="toc-text">3.ID选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-类选择器"><span class="toc-number">4.</span> <span class="toc-text">4.类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-群组选择器（selector1-selectorN"><span class="toc-number">5.</span> <span class="toc-text">5.群组选择器（selector1,selectorN)</span></a></li></ol>
           </div>
       </div>
     </div>
@@ -205,10 +218,10 @@
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
-      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;1754317747@qq.com
+      联系方式&nbsp;|&nbsp;1754317747@qq.com
     </div>
   </div>
 </footer>

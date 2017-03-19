@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3选择器 | Jessionlin&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="选择器是CSS知识中的重要部分之一，也是CSS的根基。利用CSS选择器能不改动HTML结构，通过添加不同的CSS规则得到不同样式的网页。要使某个样式应用于特定的HTML元素，首先需要找到该元素，在CSS中执行这一任务的表现规则成为CSS选择器。
+一、选择器的分类
+根据所获取页面中的元素的不同，把CSS3选择器分为5大类：基本选择器、层次选择器、伪类选择器、伪元素和属性选择器。其中伪类选择器有分为六">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3选择器">
+<meta property="og:url" content="https://jessionlin.github.io/2017/03/19/CSS3选择器/index.html">
+<meta property="og:site_name" content="Jessionlin's blog">
+<meta property="og:description" content="选择器是CSS知识中的重要部分之一，也是CSS的根基。利用CSS选择器能不改动HTML结构，通过添加不同的CSS规则得到不同样式的网页。要使某个样式应用于特定的HTML元素，首先需要找到该元素，在CSS中执行这一任务的表现规则成为CSS选择器。
+一、选择器的分类
+根据所获取页面中的元素的不同，把CSS3选择器分为5大类：基本选择器、层次选择器、伪类选择器、伪元素和属性选择器。其中伪类选择器有分为六">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E5%8A%A8%E6%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E7%9B%AE%E6%A0%87%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/QUI%E5%85%83%E7%B4%A0%E7%8A%B6%E6%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E5%90%A6%E5%AE%9A%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:image" content="http://om4k2r3sl.bkt.clouddn.com/%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="og:updated_time" content="2017-03-19T12:13:59.674Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3选择器">
+<meta name="twitter:description" content="选择器是CSS知识中的重要部分之一，也是CSS的根基。利用CSS选择器能不改动HTML结构，通过添加不同的CSS规则得到不同样式的网页。要使某个样式应用于特定的HTML元素，首先需要找到该元素，在CSS中执行这一任务的表现规则成为CSS选择器。
+一、选择器的分类
+根据所获取页面中的元素的不同，把CSS3选择器分为5大类：基本选择器、层次选择器、伪类选择器、伪元素和属性选择器。其中伪类选择器有分为六">
+<meta name="twitter:image" content="http://om4k2r3sl.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E5%99%A8.png">
+  <meta name="google-site-verification" content="LIm5dw-rET7nnNJpJvLM1kkBCSKpp0i4KlqU548TN3o" />
+  
+    <link rel="alternate" href="/atom.xml" title="Jessionlin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261497542'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261497542' type='text/javascript'%3E%3C/script%3E"));</script>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jessionlin.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jessionlin&#39;s blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/19/CSS3选择器/" class="article-date">
+  <time datetime="2017-03-19T11:21:05.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3选择器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>选择器是CSS知识中的重要部分之一，也是CSS的根基。利用CSS选择器能不改动HTML结构，通过添加不同的CSS规则得到不同样式的网页。要使某个样式应用于特定的HTML元素，首先需要找到该元素，在CSS中执行这一任务的表现规则成为CSS选择器。</p>
+<h1 id="一、选择器的分类"><a href="#一、选择器的分类" class="headerlink" title="一、选择器的分类"></a>一、选择器的分类</h1><hr>
+<pre><code>根据所获取页面中的元素的不同，把CSS3选择器分为5大类：基本选择器、层次选择器、伪类选择器、伪元素和属性选择器。其中伪类选择器有分为六种：动态伪类选择器、目标伪类选择器、语言伪类、UI元素状态伪类选择器、结构伪类选择器和否定伪类选择器。如图：
+</code></pre><hr>
+<p><img src="http://om4k2r3sl.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<hr>
+<pre><code>下面将对这些选择器一一介绍
+</code></pre><h1 id="二、选择器用法"><a href="#二、选择器用法" class="headerlink" title="二、选择器用法"></a>二、选择器用法</h1><h2 id="1-基本选择器"><a href="#1-基本选择器" class="headerlink" title="1.基本选择器"></a>1.基本选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="2-层次选择器"><a href="#2-层次选择器" class="headerlink" title="2.层次选择器"></a>2.层次选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="3-动态伪类选择器"><a href="#3-动态伪类选择器" class="headerlink" title="3.动态伪类选择器"></a>3.动态伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%8A%A8%E6%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="4-目标伪类选择器"><a href="#4-目标伪类选择器" class="headerlink" title="4.目标伪类选择器"></a>4.目标伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E7%9B%AE%E6%A0%87%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="5-UI元素状态伪类选择器"><a href="#5-UI元素状态伪类选择器" class="headerlink" title="5.UI元素状态伪类选择器"></a>5.UI元素状态伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/QUI%E5%85%83%E7%B4%A0%E7%8A%B6%E6%80%81%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="6-结构伪类选择器"><a href="#6-结构伪类选择器" class="headerlink" title="6.结构伪类选择器"></a>6.结构伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="7-否定伪类选择器"><a href="#7-否定伪类选择器" class="headerlink" title="7.否定伪类选择器"></a>7.否定伪类选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%90%A6%E5%AE%9A%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h2 id="8-属性选择器"><a href="#8-属性选择器" class="headerlink" title="8.属性选择器"></a>8.属性选择器</h2><p><img src="http://om4k2r3sl.bkt.clouddn.com/%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.png" alt="alt text"></p>
+<h6 id="注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。"><a href="#注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。" class="headerlink" title="注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。"></a>注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。</h6>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jessionlin.github.io/2017/03/19/CSS3选择器/" data-id="cj0gn9tez0000wso02brlmsu3" class="article-share-link">Share</a>
+      
+        <a href="https://jessionlin.github.io/2017/03/19/CSS3选择器/#ds-thread" class="article-comment-link">Comments</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/19/基本选择器语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          基本选择器语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/17/PS蒙版/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PS蒙版</div>
+    </a>
+  
+</nav>
+
+  
+  
+    <! -- ���Ӿ���ͼ�� -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="����"></a>
+        <span class="donate_txt">
+           &uarr;<br>
+           感谢对作者工作的大力支持，以下两个二维码中，左边的是支付宝二维码，右边的是微信二维码
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- ֧��������ͼ�� -->
+        <img src="http://om4k2r3sl.bkt.clouddn.com/zhifubaos.png" alt="֧��������"> 
+        <!-- ΢�Ŵ���ͼ�� -->
+        <img src="http://om4k2r3sl.bkt.clouddn.com/wechats.png" alt="΢�Ŵ���">  
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- ���Ӿ���ͼ�� -->
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div id=="ds-thread" class="ds-thread" data-thread-key="2017/03/19/CSS3选择器/" data-title="CSS3选择器" data-url="https://jessionlin.github.io/2017/03/19/CSS3选择器/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、选择器的分类"><span class="toc-number">1.</span> <span class="toc-text">一、选择器的分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、选择器用法"><span class="toc-number">2.</span> <span class="toc-text">二、选择器用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本选择器"><span class="toc-number">2.1.</span> <span class="toc-text">1.基本选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-层次选择器"><span class="toc-number">2.2.</span> <span class="toc-text">2.层次选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-动态伪类选择器"><span class="toc-number">2.3.</span> <span class="toc-text">3.动态伪类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-目标伪类选择器"><span class="toc-number">2.4.</span> <span class="toc-text">4.目标伪类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-UI元素状态伪类选择器"><span class="toc-number">2.5.</span> <span class="toc-text">5.UI元素状态伪类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-结构伪类选择器"><span class="toc-number">2.6.</span> <span class="toc-text">6.结构伪类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-否定伪类选择器"><span class="toc-number">2.7.</span> <span class="toc-text">7.否定伪类选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-属性选择器"><span class="toc-number">2.8.</span> <span class="toc-text">8.属性选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。"><span class="toc-number">2.8.0.0.0.1.</span> <span class="toc-text">注：本篇博客系统介绍CSS3选择器分类及选择器的功能，选择器具体操作见各个链接中的分块博文。暂时分块博文还没有完成，我会逐步更新。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;1754317747@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"jessionlin1"};
+      </script>
+      <script src="/duoshuo/embed.js"></script>
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>

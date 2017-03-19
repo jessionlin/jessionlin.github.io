@@ -41,7 +41,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jessionlin.github.io"></form>
@@ -68,6 +68,381 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-JS基础语法简述" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/09/JS基础语法简述/" class="article-date">
+  <time datetime="2017-03-09T04:38:19.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/JS基础语法简述/">JS基础语法简述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>JavaScript是前端工程师用的不能再熟悉的一种脚本语言，主要是用户创建动态网页、与后端交互等。下面是我学习时整理的JavaScript基础语法</p>
+<h3 id="1-js基本常识"><a href="#1-js基本常识" class="headerlink" title="1.js基本常识"></a>1.js基本常识</h3><p><strong>js命名规范：</strong><br>    1.一定要有意义，尽量用英文单词<br>    2.不要以数字开头，不能使系统的关键字,不能使用运算符<br>    3.注意大小写<br><strong>大小写：</strong><br>    变量名和函数名 第一个单词 小写以后每个单词 首字母大写<br>    对象 ： 每个单词首字母都要大写<br><strong>分号：</strong><br>    结构定义语句后不加分号 if for while<br>    功能执行语句一定要加分号 赋值等<br><strong>变量：</strong><br>    变量声明后是浏览器关闭后才释放的，在没关闭之前可以随时使用</p>
+<p>数据类型：<br>    typeof(变量);</p>
+<pre><code>1.number (int float double) 注意：计算时还是按整形和浮点型分开使用
+2.string (string char)
+3.boolean
+4.object(object array null) 使用时分别处理
+5.undefined 没有声明变量
+整数
+var a=10;
+var a=045;
+var a=0Xff;
+浮点数不能用等号进行判断
+字符串&apos;&apos;,&quot;&quot;没有区别，所有的转义都可以使用，
+</code></pre><h3 id="2-函数"><a href="#2-函数" class="headerlink" title="2.函数"></a>2.函数</h3><pre><code>1.函数的作用 ---决定去不去使用
+2.函数的参数 ---决定怎么用
+3.返回值     ---决定调用后如何处理
+</code></pre><p><strong>a.函数组成：</strong></p>
+<pre><code>1.函数名
+2.参数：根据需要使用参数
+3.函数体（功能）
+4.返回值（可选）
+</code></pre><h6 id="注：函数名不加-时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用-也可以直接var-test-function"><a href="#注：函数名不加-时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用-也可以直接var-test-function" class="headerlink" title="注：函数名不加()时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用,也可以直接var test=function(){}"></a>注：函数名不加()时，这个函数名就代表整个函数。函数名可赋值给一个变量，那么这个变量就可以当作这个函数的函数名使用,也可以直接<code>var test=function(){}</code></h6><hr>
+<p><strong>b.回调函数（参数中用到了函数）:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">例：</div><div class="line">	function demo(a,b,fun)&#123;</div><div class="line">		return a+b+fun(a,b);</div><div class="line">	&#125;</div><div class="line">	demo(1,2,test);</div><div class="line">	function test(x,y)&#123;</div><div class="line">		return 100+x+y;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	也可以:</div><div class="line">	demo(1,2,function(x,y)&#123;</div><div class="line">		return x*y;</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	</div><div class="line">	再者：</div><div class="line">	functioin table(start,end,check)&#123;</div><div class="line">		for(var i=start;i&lt;end;i++)&#123;</div><div class="line">			if(check(i))&#123;</div><div class="line">				document.write(i+&apos;&lt;/br&gt;&apos;);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//1.从这个函数中(10,500)取出3的倍数</div><div class="line">	//2.从这个函数中(-200,200)取出负数</div><div class="line">	table(10,500,function(num)&#123;</div><div class="line">		if(num%3==0) return true;</div><div class="line">		else return false;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>c.系统函数</strong><br>系统函数中的global和window对象可以供程序员使用<br>escape(charstring)//为字符串进行编码.所有空格、标点、重音符号以及其他非ASCII<br>字符否用%xx编码代替，其中xx等于表示该字符的十六进制数<br>unescape(charstring) 与其用法一致但是是解码操作<br>isNaN(data)判断data是否为不是数字类型（NaN）<br>eval(codestring) 检查并执行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">a=&quot;23.45&quot;;</div><div class="line">var str=&apos;var f=&quot;&apos;+a+&apos;&quot;;if(!isNaN(f))&#123; var i=parseInt(f);&#125;else&#123;var i=0;&#125;&apos;;</div><div class="line">eval(str);</div><div class="line">alert(1);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>d.函数特性</strong><br>d-1.js中函数外声明的变量即可看成全局变量<br>默认参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function test(a,b,c)&#123;</div><div class="line">	a = a ? a : 1;</div><div class="line">	b = b ? b : 2;</div><div class="line">	c = c ? c : 3;</div><div class="line">	alert(a+&quot;-----&quot;+b+&quot;-----&quot;+c);</div><div class="line">&#125;</div><div class="line"></div><div class="line">test();</div></pre></td></tr></table></figure></p>
+<p>d-2.如果形参数大于实参数，那么函数内将把所有形参合成一个数组arguments</p>
+<h3 id="3-javascript对象"><a href="#3-javascript对象" class="headerlink" title="3.javascript对象"></a>3.javascript对象</h3><p><strong>3.1 基本常识</strong><br>    a.基于对象的操作方式（面向对象封装、继承、多态）<br>    b.将相关的操作使用一个对象完成，看作是一个整体<br>    javascript——–php<br>     对象————-类<br>     对象实例 —–对象<br>    c.对象包括：</p>
+<pre><code>字符串对象
+数学对象
+数组
+事件对象
+</code></pre><hr>
+<p>   d.对象中存的内容：</p>
+<pre><code>   d.1、属性（变量）
+   d.2、方法（函数）
+都是和这个对象相关的
+</code></pre><hr>
+<p>   e.使用步骤：<br>     e.1.找到对象<br>      e.2.实例化对象<br>      e.3.操作对象</p>
+<hr>
+<p>   f.实例对象</p>
+<pre><code>f.1对象实例：用&apos;.&apos;进行操作
+f.2对象实例.属性 （取值，赋值）
+f.3对象实例[&quot;属性名&quot;]
+f.4对象实例.方法（）；
+</code></pre><hr>
+<p>如Date对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var dt=new Date();</div><div class="line">	var str=&quot;今天是：&quot;;</div><div class="line">	str += (dt.getYear()+1900)+&quot;年&quot;;</div><div class="line">	str += (dt.getMonth()+1)+&quot;月&quot;;</div><div class="line">	str += dt.getDate()+&quot;日 &quot;;</div><div class="line">	str += dt.getHours()+&quot;:&quot;;</div><div class="line">	str += dt.getMinutes()+&quot;:&quot;;</div><div class="line">	str += dt.getSeconds()+&quot; &quot;;</div><div class="line">	</div><div class="line">	var	arr=[&apos;星期日&apos;,&apos;星期一&apos;,&apos;星期二&apos;,&apos;星期三&apos;,&apos;星期四&apos;,&apos;星期五&apos;,&apos;星期六&apos;];</div><div class="line">	str += arr[dt.getDay()];</div><div class="line">	document.write(str);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>3.2自定义对象</strong><br>a.方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function Play()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	var p = new Play();</div><div class="line">	//属性</div><div class="line">	p.width=300;</div><div class="line">	p.height=200;</div><div class="line">	p.num=4;</div><div class="line">	p.autotime=3;</div><div class="line">	//方法</div><div class="line">	p.autoPlay=function()&#123;</div><div class="line">		alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">	&#125;</div><div class="line">	p.test=function()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>b.方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Play()&#123;</div><div class="line">									=》》》》》》var p = new Object();</div><div class="line">	&#125;</div><div class="line">	var p = new Play();</div></pre></td></tr></table></figure></p>
+<p>c.方法三：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Play()&#123;</div><div class="line">	var p = new Object();</div><div class="line">	//属性</div><div class="line">	p.width=300;</div><div class="line">	p.height=200;</div><div class="line">	p.num=4;</div><div class="line">	p.autotime=3;</div><div class="line">	//方法</div><div class="line">	p.autoPlay=function()&#123;</div><div class="line">		alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">		alert(p.num);//this.num,静态方法中无this</div><div class="line">	&#125;</div><div class="line">	p.test=function()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	return p;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p = new Play();</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function Play()&#123;</div><div class="line">		var p = new Object();</div><div class="line">		//属性</div><div class="line">		p.width=300;</div><div class="line">		p.height=200;</div><div class="line">		p.num=4;</div><div class="line">		p.autotime=3;</div><div class="line">		//方法</div><div class="line">		p.autoPlay=function()&#123;</div><div class="line">			alert(&quot;dsfdsfdsfdgf&quot;);</div><div class="line">			alert(this.num);</div><div class="line">		&#125;</div><div class="line">		p.test=function()&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return p;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	var p = new Play();</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>d.方法四：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//有this就得有对象</div><div class="line">	function Play(width,height,num)&#123;</div><div class="line">		this.width=width;</div><div class="line">		this.height=height;</div><div class="line">		this.num=num;</div><div class="line">		this.autoPlay=function()&#123;</div><div class="line">			alert(&quot;###########&quot;);</div><div class="line">		&#125;</div><div class="line">		this.test=function()&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return p;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	var p = new Play(3000,200,8);</div><div class="line">	</div><div class="line">	alert(p.width);</div><div class="line">	p.autoPlay();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">遍历属性名(接上)：</div><div class="line">	var pro=&quot;&quot;;</div><div class="line">for(pro in p)&#123;</div><div class="line">	alert(p[pro]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">with(对象st)&#123;</div><div class="line">	所有方法如果不加对象都是st的方法</div><div class="line">&#125;</div><div class="line"></div><div class="line">with(document)&#123;</div><div class="line">	write(&quot;&lt;table&gt;&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.3内置对象</strong><br>a.Function对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x+y&quot;);</div><div class="line">demo=new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x*y&quot;);</div><div class="line">alert(demo(3,4));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>b.String对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = new String(&quot;abcdefg&quot;);</div><div class="line">var str = &quot;abcdefg&quot;;</div></pre></td></tr></table></figure></p>
+<p>c.快速声明对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var p=new Object();</div><div class="line">p.name=&quot;zhangsan&quot;;</div><div class="line">p.age=10;</div><div class="line">p.sex=&quot;nan&quot;;</div><div class="line"></div><div class="line">/*</div><div class="line">	json</div><div class="line">	&#123;属性1:值1,属性2:值2,属性3:值3,属性4:值4&#125;</div><div class="line">*/</div><div class="line">var p=&#123;name:&quot;zhangsan&quot;,age:10,sex:&quot;nan&quot;&#125;;</div><div class="line">alert(p.name);</div><div class="line">alert(p[&quot;age&quot;]);</div><div class="line"></div><div class="line"></div><div class="line">match()一般用于验证操作</div><div class="line">Number对象：</div><div class="line">alert(Number.MAX_VALUE);</div></pre></td></tr></table></figure></p>
+<p>d.静态对象：不创建对象的情况下直接用对象名访问</p>
+<p>e.Math对象：<br>不要实例化，直接调用<br>如100以内随机数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var num=Math.random()*100;</div><div class="line">document.write(num+&quot;&lt;br&gt;&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h3><p>数组的声明与应用<br>a、数组的作用:只要是批量的数据都需要使用数组声明<br>b、如何声明数组<br>    4.1.快速声明数组的方法<br>    var 数组名=[元素1,元素2,元素3,元素4];<br>    其中的元素可以为另一个数组.<br>    4.2.使用array对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function MyArray()&#123;</div><div class="line">	this.length=arguments.length;</div><div class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</div><div class="line">		this[i] = arguments[i];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	this.sort=function()&#123;&#125;</div><div class="line">	this.pop=function()&#123;&#125;</div><div class="line">	this.push=function()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(&quot;成员&quot;,&quot;成员&quot;,&quot;成员n&quot;);</div><div class="line">var arr = new Array(10);</div><div class="line"></div><div class="line">var arr=[1,5,3,4,2,9,8,7];</div><div class="line">arr.sort(function(a,b)&#123;//可用此方法对函数进行重写</div><div class="line">	if(a&gt;b)&#123;</div><div class="line">		return -1;</div><div class="line">	&#125;</div><div class="line">	else if(a == b)&#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	else&#123;return 1&#125;;</div><div class="line">&#125;);</div><div class="line">document.write(arr);</div><div class="line"></div><div class="line">var arr=[&quot;aaa&quot;,&quot;aaaa&quot;,&quot;aa&quot;,&quot;b&quot;,&quot;aaaaaaaa&quot;];</div><div class="line">//arr.push(&quot;wwww&quot;,&quot;yyyy&quot;);</div><div class="line">//arr.pop();</div><div class="line">//arr.unshift(&quot;hello&quot;);</div><div class="line">arr.shift();</div><div class="line">alert(arr);</div><div class="line">alert(arr.length);</div><div class="line"></div><div class="line">reverse();数组反转</div><div class="line">join(s);数组转为字符串，&apos;s&apos;为连接符</div></pre></td></tr></table></figure>
+<p>c、遍历数组</p>
+<p>d、数组的处理（内置处理方法）</p>
+<h3 id="5-DOM"><a href="#5-DOM" class="headerlink" title="5.DOM"></a>5.DOM</h3><p>作用：DOM(Document Object Model)<br>    1.document 文档  HTML/XML文件 即标记语言<br>    2.Object对象(HTML元素 转乘的对象(js对象))<br>    注意：如果使用js操作HTML文档，就需要先将HTML文档中的结构转成js对象<br>    <strong>a.操作属性</strong><br>    <strong>b.操作内容</strong><br>        <em>5.1.innerText</em>//里面的东西全以文本形式显示  obj.innerText=”<b>brother</b>“，<br>        该属性火狐浏览器不兼容，可用textContent代替，用法相同<br>        使用时可自己写一个方法,用document.all判断是否支持所有方法，即自己写个转换<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">		if(document.all)&#123;</div><div class="line">			alert(document.all);</div><div class="line">		&#125;</div><div class="line">		ffie(a,&quot;wwww&quot;);</div><div class="line">	alert(ffie(a));</div><div class="line">	function ffie(obj,value)&#123;</div><div class="line">		if(document.all)&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.innerText;</div><div class="line">			&#125;</div><div class="line">			else obj.innerText=value;</div><div class="line">		&#125;else&#123;</div><div class="line">			if(typeof(value)==&quot;undefined&quot;)&#123;</div><div class="line">				return obj.textContent;</div><div class="line">			&#125;</div><div class="line">			else obj.textContent=value;</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.2.innerHTML//里面的内容以HTML形式显示<br>        使用时尽量使用innerHTML<br>    5.3.outerText<br>    5.4.outerHTML  //3,4都包含自己本身的标签<br>        表单<br>            表单元素取值需要用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	**c.操作样式**</div><div class="line">		对象.style.属性=&quot;&quot;;同时属性需要格式化，即&quot;-&quot;去掉，后面的单词首字母大写</div><div class="line">---</div><div class="line">		但有些属性无法从内联式样式中获取，此时用另一个属性即可 ， 如width/offsetWidth</div><div class="line">---</div><div class="line">		操作样式较多时，可添加className，className数量不限;将className清空即取消样式</div></pre></td></tr></table></figure></p>
+<pre><code>        var pro=&quot;&quot;;
+    for(pro in a){
+        document.write(&quot;a.&quot;+pro+&quot;=&quot;+a[&quot;pro&quot;]+&quot;&lt;br&gt;&quot;);
+    }
+
+可用此方法获取a标签中的所有属性
+有了以上三点的操作之前先转成对象
+</code></pre><p>```<br>    转成对象的两种形式:<br>    1.标记名(多个)、id(唯一)、name(多个)<br>    document中的三个方法<br>    var objs=document.getElementsByTagName(“div”);<br>    var obj = document.getElementById(“one”);<br>    var obj = document.getElementsByName(“two”);<br>    2.通过数组获取<br>    document.body;<br>    document.title;<br>    window.frames;</p>
+<pre><code>document.all;//所有的标记
+document.embeds;//所有动画
+document.scripts;//所有js脚本
+document.applets;//所有Java脚本
+document.forms;//所有图像
+document.images;//所有表单
+document.anchors;//所有的锚点
+document.styleSheets;//所有的样式
+document.links;//所有链接
+
+有7种方式访问(02.html)
+</code></pre><hr>
+<pre><code>其各种操作按照对象操作原则，可以无限制的在js中添加属性
+Model:
+    一、将文档想成一个倒数，每一个部分（元素、内容、属性、注释）都是一个节点
+    二、只要知道一个节点，按关系找到其他节点，
+        父节点，                    parentNode
+        子节点（第一个，最后一个）  childNode  firstNode  lastNode
+        同胞节点 （上一个，下一个） nextSibling previousSibling
+    三、找到节点：节点类型nodeType，节点名nodeName，节点值nodeValue
+    nodeName属性含有节点的名称
+    元素节点的nodeName是标签名称
+    属性节点的nodeName是属性名称
+    文本节点的nodeName是#text
+    文档节点的nodeName永远是#document
+注释：nodeName所包含的XML元素的标签名称永远是大写的
+    对于文本节点，nodeValue属性包含文本
+    对于属性节点，nodeValue属性包含属性值
+    nodeValue属性对文档节点和元素节点时不可用的。
+    nodeType属性克返回节点的类型
+
+    元素类型                   节点类型
+    元素                        1
+    属性                        2
+    文本                        3
+    注释                        8
+    文档                        9
+    document.close()：关闭文档流
+    注意：不能用输出的方式在已经结束的文档流中添加数据，此时可以动态创建节点完成操作+
+    可以再一个文档流中：
+    1.创建节点
+        (在文本流中创建用document)document.createElement(&quot;&quot;);//只有一个文件中只能存在一个的节点不可创建
+        appendChild();
+        insertBefore();
+    2.添加到文档流中
+    3.删除节点
+    removeChild();
+</code></pre><p>d.事件处理：<br>    一、事件源：任何一个HTML元素（节点），body，div，button，p,,a,h1…………<br>    二、事件 ：你的操作</p>
+<pre><code>鼠标：
+    click      单击
+    dblclick        双击
+    textcontentmenu(在body) 文本菜单
+    contextmenu    //右键点击(06.html 2)
+    mouseover    放上
+    mouseout     离开
+    mousedown     按下
+    mouseup         抬起
+    mousemove      移动
+
+键盘：
+    keypress  键盘事件   指数字字母键，其余键无效
+    keyup      键盘抬起   
+    keydown   按下          此时所有的键都可以取到
+
+文档：
+    load     加载   load中的内容在加载时最后执行(06.html 4)
+    unload   关闭    关闭或切换页面时触发
+    beforeunload    关闭之前
+
+表单：
+    focus   获得焦点事件
+    blur     失去焦点事件
+    submit   提交事件
+    change   改变事件
+其他事件：
+    scroll    滚动事件
+    selected  选择事件
+</code></pre><hr>
+<pre><code>三、事件处理程序
+    有三种方法添加事件：
+        1.格式：&lt;tag on事件=&quot;事件处理程序&quot;/&gt;(05.html 1)
+        2.
+            &lt;script&gt;
+                对象.on事件=事件处理程序(05.html 2)
+            &lt;/script&gt;
+        3.&lt;script for=&quot;事件源id&quot; event=&quot;事件&quot;&gt;
+                事件处理程序
+        &lt;/script&gt;
+
+    &lt;body oncontextmenu=&quot;return false&quot;&gt;&lt;/body&gt;//可以屏蔽掉时间(06.html) 且必须用return false.用函数返回值的话要写成return tesat()
+事件对象：event window.event
+        属性：
+            1.srcElement  //代表事件源对象
+            2.keyCode          //时间发生时的键盘码  keypress keydown keyup
+            3.clientX,clientY 
+            4.screenX,screenY
+            5.returnValue
+            6.cancelBubble
+</code></pre><h3 id="6-浏览器对象"><a href="#6-浏览器对象" class="headerlink" title="6.浏览器对象"></a>6.浏览器对象</h3><p>浏览器本身就有一些对象，不用创建即可使用<br>    window : 当前浏览器窗体的</p>
+<pre><code>    属性：
+        status
+        opener//在子窗体中代表父窗体
+        closed
+
+
+
+    方法：
+        alert()
+        confirm()
+        setInterval()
+        clearInterval();//循环执行
+
+        setTimeout(&quot;aaa()&quot;,3000)  //只执行一次,在规定时间内执行某一操作
+        clearTimeout()
+
+        open();//开启新窗体(11.html)(16)
+window子对象：
+            document
+            frames
+            location
+            history
+            screen 
+
+[window.]成员
+document.write();
+
+本身window 
+open可以弹出子窗体
+
+frames//多个窗体
+
+跳转位置函数:
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3&quot;&gt;&lt;!--3秒钟刷新一次--&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;url=http://www.brophp.com&quot;&gt;&lt;!--3秒钟加载一次页面--&gt;
+    header(&quot;Location:login.php&quot;);//前面不能有输出
+
+    window.navigate(url)
+    location.href=url;
+    location.replace(&apos;url&apos;)
+
+    记得：
+        location=&apos;url&apos;;
+        location.reload(true);(14.html)
+history
+        history.back()
+        history.go(-2)(15.html)
+screen
+        (16.html)
+表单对象:
+        document.getElementById()
+
+        document.forms.username
+        document.frm1.username
+
+        本身表单有的属性都可以作为对象的属性
+
+        action 
+        method
+        enctype
+        title
+
+        方法：
+        submit()
+        focus()//获取焦点
+
+        事件:
+            onfocus();//获取焦点
+            onblur();//失去焦点
+            onchange();//内容改变事件
+
+            form  上的onsubmit();(17.html)
+select标签:
+    selectedIndex代表选项框下标
+    options[selectedIndex]获取选项
+
+
+位置：(images/weizhi.png)
+    style.top
+    style.left
+
+    offsetWidth
+    offsetHeight
+    offsetTop    //距离外面一层盒子的距离
+    offsetLeft
+
+    scrollHeight
+    scrollWidth
+    scrollTop    //滚动条滚动的高度，一般从0开始计数，计数为+时元素上升，反之下降。
+没有滚动条使用js操作是的某一容器内的文本(如div)向上滚动，则需要对该div的上一层非
+直接文本容器的scrollTop属性进行改动而不是文本的属性，(22.html)
+scrollLeft
+</code></pre><p>//用absolute布局可以是元素脱离文档流，<br>//用fixed布局可以使页面中某一元素的位置不随滚动条的改变而改变，此时fixed的<br>布局相对于HTML标签</p>
+<h6 id="大家看到这里应该对JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"><a href="#大家看到这里应该对JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。" class="headerlink" title="大家看到这里应该对JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。"></a>大家看到这里应该对JavaScript的基础语法有了一定的了解，本部分内容很长，但是只是抽出来的比较重要的部分，具体的还是希望大家参考JavaScript权威书籍。如果发现本文中有错误，欢迎各位道友批评指教。</h6>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jessionlin.github.io/2017/03/09/JS基础语法简述/" data-id="cj0gn9tgl0002wso0p3vb1e0j" class="article-share-link">Share</a>
+      
+        <a href="https://jessionlin.github.io/2017/03/09/JS基础语法简述/#ds-thread" class="article-comment-link">Comments</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
+  
+    <article id="post-Vuejs-Prop基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/Vuejs-Prop基本用法/" class="article-date">
+  <time datetime="2017-03-05T01:58:51.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/05/Vuejs-Prop基本用法/">Vuejs Prop基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="一、使用Prop传递数据"><a href="#一、使用Prop传递数据" class="headerlink" title="一、使用Prop传递数据"></a>一、使用Prop传递数据</h2><p>组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用props把数据传给子组件。<br>prop是父组件用来传递数据的一个自定义属性。子组件需要显示的地用<code>props</code>选项声明”prop”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;message&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>然后向它传入一个普通字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello!</div></pre></td></tr></table></figure></p>
+<h2 id="二、camelCase-vs-kebab-case"><a href="#二、camelCase-vs-kebab-case" class="headerlink" title="二、camelCase vs.kebab-case"></a>二、camelCase vs.kebab-case</h2><p>html不区分大小写。当使用非字符串模板时，prop的名字形式会从camelCase转为kebab-case（短横线隔开）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//camelCase</div><div class="line">Vue.component(&apos;child&apos;,&#123;</div><div class="line">	props:[&apos;myMessage&apos;],</div><div class="line">    template:&apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//kebab-case</div><div class="line">&lt;child my-message=&quot;hello!&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>再次说明，如果你是用字符串模板，不用在意这些限制。</p>
+<h2 id="三、动态Prop"><a href="#三、动态Prop" class="headerlink" title="三、动态Prop"></a>三、动态Prop</h2><p>类似于用<code>v-bind</code>绑定HTML特性到一个表达式，也可以用<code>v-bind</code>动态绑定props的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	&lt;input v-model=&quot;parrentMsg&quot;&gt;</div><div class="line">    &lt;br&gt;</div><div class="line">    &lt;child v-bind:my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>使用<code>v-bind</code>的缩写语法通常更简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child :my-message=&quot;parrentMsg&quot;&gt;&lt;/child&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="四、字面量语法vs动态语法"><a href="#四、字面量语法vs动态语法" class="headerlink" title="四、字面量语法vs动态语法"></a>四、字面量语法vs动态语法</h2><p>因为它是一个字面<code>prop</code> ，它的值以字符串 <code>&quot;1&quot;</code> 而不是以实际的数字传下去。如果想传递一个实际的 JavaScript 数字，需要使用 <code>v-bind</code> ，从而让它的值被当作 JavaScript 表达式计算：</p>
+<p><comp v-bind:some-prop="1"></comp></p>
+<h2 id="五、单项数据流"><a href="#五、单项数据流" class="headerlink" title="五、单项数据流"></a>五、单项数据流</h2><p>prop是单项绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。同时，这也很好理解，父组件是子组件的高度抽象，表示子组件的共有部分，一个组件的数据改变并不会改变其抽象，然而其抽象的改变却代表着所有子组件的改变。<br>另外，每次组渐渐更新时，子组件的所有prop都会更新为最新值。这意味着你不应该在子组件内部改变prop。如果你这么做了，Vue会在控制台给出警告。<br>通常有两种改变prop的情况：</p>
+<h4 id="1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"><a href="#1-prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；" class="headerlink" title="1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；"></a>1.prop作为初始值传入，子组件之后只是将它的初始值作为本地数据的初始值使用；</h4><h4 id="2-prop作为需要被转变的原始值传入。"><a href="#2-prop作为需要被转变的原始值传入。" class="headerlink" title="2.prop作为需要被转变的原始值传入。"></a>2.prop作为需要被转变的原始值传入。</h4><p>更确切地说这两种情况是：<br>    a.定义一个局部data属性，并将prop的初始值作为局部数据的初始值。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    props: [&apos;initialCounter&apos;],</div><div class="line">	data: function () &#123;</div><div class="line">  		return &#123; counter: this.initialCounter&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>b.定义一个 computed 属性，此属性从 prop 的值计算得出。
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   props: [&apos;size&apos;],</div><div class="line">computed: &#123;</div><div class="line"> 		normalizedSize: function () &#123;</div><div class="line">  		 return this.size.trim().toLowerCase()</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="六、Prop验证"><a href="#六、Prop验证" class="headerlink" title="六、Prop验证"></a>六、Prop验证</h2><p>组件可以为 props 指定验证要求。如果未指定验证要求，Vue 会发出警告。当组件给其他人使用时这很有用。<br>prop 是一个对象而不是字符串数组时，它包含验证要求：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;example&apos;, &#123;</div><div class="line">  props: &#123;</div><div class="line">    // 基础类型检测 （`null` 意思是任何类型都可以）</div><div class="line">    propA: Number,</div><div class="line">    // 多种类型</div><div class="line">    propB: [String, Number],</div><div class="line">    // 必传且是字符串</div><div class="line">    propC: &#123;</div><div class="line">      type: String,</div><div class="line">      required: true</div><div class="line">    &#125;,</div><div class="line">    // 数字，有默认值</div><div class="line">    propD: &#123;</div><div class="line">      type: Number,</div><div class="line">      default: 100</div><div class="line">    &#125;,</div><div class="line">    // 数组／对象的默认值应当由一个工厂函数返回</div><div class="line">    propE: &#123;</div><div class="line">      type: Object,</div><div class="line">      default: function () &#123;</div><div class="line">        return &#123; message: &apos;hello&apos; &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    // 自定义验证函数</div><div class="line">    propF: &#123;</div><div class="line">      validator: function (value) &#123;</div><div class="line">        return value &gt; 10</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><code>type</code>可以是下面的原生构造器：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Function</li>
+<li>Object</li>
+<li>Array</li>
+</ul>
+<p><code>type</code>也可以是一个自定义构造器，使用<code>instanceof</code>检测。当prop验证失败了，如果使用的是开发版本会抛出一条警告。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jessionlin.github.io/2017/03/05/Vuejs-Prop基本用法/" data-id="cj0gn9thn0006wso0ceht9prj" class="article-share-link">Share</a>
+      
+        <a href="https://jessionlin.github.io/2017/03/05/Vuejs-Prop基本用法/#ds-thread" class="article-comment-link">Comments</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
   
     <article id="post-vuejs表单控件绑定" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -119,9 +494,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/" data-id="cj0dpgrik000e2oo02t8535rf" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/" data-id="cj0gn9tl6000cwso0i5nu9wgv" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -177,9 +552,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/" data-id="cj0dpgrin000f2oo0pe4a460j" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/" data-id="cj0gn9toj000jwso09kaj7j6f" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -237,9 +612,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/vue事件处理器/" data-id="cj0dpgriq000h2oo09ce4fkoc" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/vue事件处理器/" data-id="cj0gn9tlv000fwso0tpid9qa2" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -307,9 +682,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/" data-id="cj0dpgrig000c2oo0ttptf4c4" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/" data-id="cj0gn9tmm000iwso037sxobyd" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -371,9 +746,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/01/node配置与安装/" data-id="cj0dpgria00092oo0fv7kdknr" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/01/node配置与安装/" data-id="cj0gn9tkq000bwso05asbvbw4" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -465,9 +840,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/" data-id="cj0dpgrib000a2oo0mwk4zxyc" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/" data-id="cj0gn9tlf000dwso04ar96cd5" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -530,9 +905,9 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/02/28/hexo-gitpage/" data-id="cj0dpgrid000b2oo0t7iqr7nv" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/02/28/hexo-gitpage/" data-id="cj0gn9tkg0008wso0ckfz0h4f" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -625,9 +1000,9 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/02/27/markdown-基本用法/" data-id="cj0dpgri800082oo0lxuzq4v8" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/02/27/markdown-基本用法/" data-id="cj0gn9tkn000awso09pg8kz8e" class="article-share-link">Share</a>
       
-        <a href="https://jessionlin.github.io/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://jessionlin.github.io/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">Comments</a>
       
       
       
@@ -643,7 +1018,7 @@ k. *package.json*文件在node中已介绍
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 </section>
            
@@ -661,9 +1036,17 @@ k. *package.json*文件在node中已介绍
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
+    <h3 class="widget-title recent-posts">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/19/基本选择器语法/">基本选择器语法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/CSS3选择器/">CSS3选择器</a>
+          </li>
         
           <li>
             <a href="/2017/03/17/PS蒙版/">PS蒙版</a>
@@ -675,14 +1058,6 @@ k. *package.json*文件在node中已介绍
         
           <li>
             <a href="/2017/03/11/PS学习前言/">PS学习前言</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/11/PS之移动工具/">PS之移动工具</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/09/svg基本语法/">svg基本语法</a>
           </li>
         
       </ul>
@@ -707,10 +1082,10 @@ k. *package.json*文件在node中已介绍
   <div class="outer">
     <div id="footer-left">
       &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;1754317747@qq.com
+      Contact&nbsp;|&nbsp;1754317747@qq.com
     </div>
   </div>
 </footer>

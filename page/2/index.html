@@ -69,6 +69,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP部分常用函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/09/PHP部分常用函数/" class="article-date">
+  <time datetime="2017-03-09T05:48:55.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/PHP部分常用函数/">PHP部分常用函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="1-数组操作"><a href="#1-数组操作" class="headerlink" title="1.数组操作"></a>1.数组操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">array_push($arr,&quot;函数&quot;,&quot;表达式&quot;);  //向数组中添加两个元素</div><div class="line">$b=count($arr);  //输出数组的元素个数</div><div class="line">$b=array_unique($arr);  //移除数组中重复的值</div><div class="line">$b=implode(&apos;|&apos; , $arr);    //使用implode()函数将数组值转换成字符串类型，以“|”隔开，并赋值给变量str</div><div class="line">foreach ($bookname as $key=&gt;$value)//循环遍历数组</div></pre></td></tr></table></figure>
+<h3 id="2-文件操作"><a href="#2-文件操作" class="headerlink" title="2.文件操作"></a>2.文件操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">echo &quot;&lt;br&gt;&lt;br&gt;-----------注意引用文件不存在时的区别----------------&lt;br&gt;&quot;;</div><div class="line">@include(&quot;top.php&quot;);</div><div class="line">echo &quot;include后仍然输出&lt;br&gt;&quot;;</div><div class="line"></div><div class="line">@require(&quot;bottom.php&quot;);</div><div class="line">echo &quot;require后不输出了&quot;;</div><div class="line">$dirname =&quot;C:\\xampp\\htdocs\\3\\images0222&quot;; </div><div class="line"></div><div class="line">  /*  \\是否转义字符应用？</div><div class="line">      如果写成 C:\xampp\htdocs 是windows文件夹浏览窗口的样子，</div><div class="line">	  但是\ 作为文件夹分隔字符解释呢？还是转义字符解释呢？</div><div class="line">      如果作为转义字符解释，而\后面没有字符，则产生错误。因此用两个\\,第一个作为转义字符，第二个作为文件夹分隔。</div><div class="line">	  如果作为文件夹分隔，则不用转义字符，一个就够用。</div><div class="line">	  分别试试：都能成功</div><div class="line">	  $dirname =&quot;C:\\Users\\Administrator\\Desktop&quot;;</div><div class="line">	  $dirname =&quot;C:\Users\Administrator\Desktop&quot;;  </div><div class="line">	  并且用正斜线 / 也可以,为了和linux应用通用，建议用/的方式</div><div class="line">	  $dirname =&quot;C:/Users/Administrator/Desktop&quot;;</div><div class="line">  */</div><div class="line">  </div><div class="line">  $dir = opendir($dirname);       //打开目录</div><div class="line">   </div><div class="line"> while ( $file = readdir($dir))   //读取目录下的文件名</div><div class="line"> &#123;</div><div class="line">   echo &quot;&lt;li&gt;$file &lt;/li&gt;&quot; ;           //输出文件名</div><div class="line"> &#125;</div><div class="line"> closedir($dir);                 //关闭目录</div></pre></td></tr></table></figure>
+<h3 id="3-其他函数"><a href="#3-其他函数" class="headerlink" title="3.其他函数"></a>3.其他函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$a=rand (1,20);   //定义一个变量a，并赋值1-20的随机数</div><div class="line">isset($_POST[&quot;txt_username&quot;])//是否设定了括号内的值</div><div class="line">unset($a);   //$a=null; 结果相同，意义不一样  //释放变量a</div><div class="line">define (&quot;PI&quot;,3.14159);    //定义常量PI</div><div class="line">date_default_timezone_set(&quot;Asia/ShangHai&quot;);  //设置时区为上海</div><div class="line">$date = date(&apos;Y/m/d H:i:s&apos;);                  //使用date()函数获取当前系统时间 </div><div class="line">checkdate(10,38,2012)//检验日期格式, bool checkdate ( int $month , int $day , int $year )</div><div class="line">md5($a,false);     //对字符串变量进行MD5加密，然后输出</div><div class="line">function GetBalance($balance,$rice=0.02)//默认参数</div><div class="line">var_dump ($a == $b);//输出</div><div class="line">eval(codestring) ;检查并执行代码</div><div class="line">header(&quot;Location:login.php&quot;);//前面不能有输出</div><div class="line"></div><div class="line">define(&quot;MESSAGE&quot;,&quot;MESSAGE区分大小写&quot;);  //默认区分大小写</div><div class="line">echo &quot;大写: &quot;.MESSAGE . &quot;&lt;br/&gt;&quot;; </div><div class="line">echo &quot;大小写混合: &quot;.Message . &quot;&lt;br/&gt;&quot;;</div><div class="line"></div><div class="line">define(&quot;ACCOUNT&quot;,&quot;ACCOUNT不区分大小写&quot;,true);   //不区分大小写</div><div class="line">echo &quot;大写: &quot;.ACCOUNT . &quot;&lt;br/&gt;&quot;;</div><div class="line">echo &quot;小写: &quot;.account . &quot;&lt;br/&gt;&quot;;</div><div class="line">echo &quot;大小写混合: &quot;.AcCount . &quot;&lt;br/&gt;&quot;;</div><div class="line">echo &quot;函数: &quot;.constant(&quot;ACCOUNT&quot;).&quot;&lt;br/&gt;&quot;;</div><div class="line">echo defined(&quot;Account&quot;)  . &quot;&lt;br/&gt;&quot;;   //使用defined()函数判断常量是否被定义</div><div class="line"></div><div class="line">echo &quot;变量a是否为整型：&quot;. is_int($a) . &quot;&lt;br/&gt;&quot;;</div><div class="line"> echo &quot;变量a是否为布尔型：&quot;. is_bool($a) . &quot;&lt;br/&gt;&quot;;</div><div class="line"> echo &quot;变量b是否为布尔型：&quot;. is_bool($b) . &quot;&lt;br/&gt;&quot;;</div><div class="line"> echo &quot;变量c是否为字符串型：&quot;. is_string($c) . &quot;&lt;br/&gt;&quot;;</div><div class="line">echo &quot;变量d是否为整型：&quot;. is_int($d) . &quot;&lt;br/&gt;&quot;;</div></pre></td></tr></table></figure>
+<h3 id="4-超级全局变量"><a href="#4-超级全局变量" class="headerlink" title="4.超级全局变量:"></a>4.超级全局变量:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">echo &quot;当前操作系统为：&quot;. PHP_OS;</div><div class="line">echo &quot;&lt;br/&gt;当前PHP版本为：&quot;. PHP_VERSION;</div><div class="line">echo &quot;&lt;br/&gt;当前文件路径为：&quot;. __FILE__ ;</div><div class="line">echo &quot;&lt;br/&gt;当前行数为：&quot;. __LINE__ ;</div><div class="line">echo &quot;&lt;br/&gt;当前行数为：&quot;. __LINE__ ;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h3 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他:"></a>5.其他:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">静态变量退出程序时保持值不变，第二次调用程序时沿用上次的值进行重复的操作</div><div class="line">$ab=$a &amp; $b;                  //将0010 和 0011 做与操作后为0010，再转换为十进制码2</div><div class="line">echo &quot;&lt;br/&gt;变量 a&amp;b的值：&quot;. $ab;</div><div class="line">$ab=$a | $b;                  //将0010 和 0011 做或操作后为0011，再转换为十进制码3</div><div class="line">echo &quot;&lt;br/&gt;变量a|b的值：&quot;. $ab;</div><div class="line">$ab=$a ^ $b;                   //将0010 和 0011 做异或操作后为0001，再转换为十进制码1</div><div class="line">echo &quot;&lt;br/&gt;变量a^b的值：&quot;. $ab;</div><div class="line">$ab=~$a;                       //将0010 做非操作后为1101，再转换为十进制码-3</div><div class="line">echo &quot;&lt;br/&gt;变量~a的值：&quot;. $ab;</div><div class="line"></div><div class="line">echo &quot;$a&quot; .&quot;$b&quot;. &quot;&lt;br/&gt;&quot;;  //使用双引号输出变量值</div><div class="line">echo &apos;$a&apos; .&apos;$b&apos;. &apos;&lt;br/&gt;&lt;br/&gt;&apos;;  //使用单引号输出变量名</div></pre></td></tr></table></figure>
+<h3 id="6-php标记风格："><a href="#6-php标记风格：" class="headerlink" title="6.php标记风格："></a>6.php标记风格：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">  echo &quot;这是XML标记风格&lt;br/&gt;&quot;;</div><div class="line">?&gt;</div><div class="line">&lt;?</div><div class="line">  echo &quot;这是简短标记风格&lt;br/&gt;&quot;;</div><div class="line">?&gt;</div><div class="line">&lt;script language=&quot;php&quot;&gt;</div><div class="line">   echo &quot;这是脚本标记风格&lt;br/&gt;&quot;;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;%</div><div class="line">  echo &quot;这是ASP标记风格&lt;br/&gt;&quot;;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+<h3 id="7-php-数据类型"><a href="#7-php-数据类型" class="headerlink" title="7.php 数据类型:"></a>7.php 数据类型:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$a=3;</div><div class="line">$b=3;</div><div class="line">if($a=5||$b=5)&#123;</div><div class="line">	$a++;</div><div class="line">	$b++;</div><div class="line">&#125;</div><div class="line">echo &quot;$a,$b&quot;;输出为1,4</div></pre></td></tr></table></figure>
+<p>php 可用系统关键字作为变量名<br>变量常数区分大小写，其余不区分</p>
+<p>PHP 函数内外的变量名如果相同，则无法区分函数内是否为已创建的变量，则视为<br>新创建的变量，只有当函数内将此变量用global声明为全局变量才可以对函数外的变量<br>进行更改</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/" data-id="cjhc0535y0003ckw8l8g31wcp" class="article-share-link">分享</a>
+      
+        <a href="https://jessionlin.github.io/2017/03/09/PHP部分常用函数/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+
+  
     <article id="post-JS基础语法简述" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/09/JS基础语法简述/" class="article-date">
@@ -361,7 +413,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/09/JS基础语法简述/" data-id="cj0gujfs00001swo0l0htgej5" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/09/JS基础语法简述/" data-id="cjhc0535u0001ckw82sjm48gr" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/09/JS基础语法简述/#ds-thread" class="article-comment-link">留言</a>
       
@@ -429,7 +481,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/05/Vuejs-Prop基本用法/" data-id="cj0gujftr0008swo0t4iec4sx" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/05/Vuejs-Prop基本用法/" data-id="cjhc05365000ackw8klwmehi4" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/05/Vuejs-Prop基本用法/#ds-thread" class="article-comment-link">留言</a>
       
@@ -494,7 +546,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/" data-id="cj0gujfv2000fswo02urk36br" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/" data-id="cjhc0536b000hckw8frfm3t6i" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/04/vuejs表单控件绑定/#ds-thread" class="article-comment-link">留言</a>
       
@@ -552,7 +604,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/" data-id="cj0gujfvh000iswo0l1p3m08w" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/" data-id="cjhc0536d000kckw8i8c6sk67" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/04/用CSS画出三角形/#ds-thread" class="article-comment-link">留言</a>
       
@@ -612,7 +664,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/04/vue事件处理器/" data-id="cj0gujfvx000jswo0cbcudkwe" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/04/vue事件处理器/" data-id="cjhc0536b000ickw8dt3pvocg" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/04/vue事件处理器/#ds-thread" class="article-comment-link">留言</a>
       
@@ -682,7 +734,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/" data-id="cj0gujfvh000gswo06b933qhg" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/" data-id="cjhc0536a000gckw8ezaks6a5" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/02/vuejs-基本操作/#ds-thread" class="article-comment-link">留言</a>
       
@@ -746,7 +798,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/01/node配置与安装/" data-id="cj0gujfvh000hswo0d5lb1dw8" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/01/node配置与安装/" data-id="cjhc05368000eckw85ohh6s3o" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/01/node配置与安装/#ds-thread" class="article-comment-link">留言</a>
       
@@ -840,7 +892,7 @@ scrollLeft
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/" data-id="cj0gujfum000cswo01kyii8pu" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/" data-id="cjhc05367000cckw8f4w1bzq6" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/03/01/mongodb基本操作方法/#ds-thread" class="article-comment-link">留言</a>
       
@@ -905,104 +957,9 @@ k. *package.json*文件在node中已介绍
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/02/28/hexo-gitpage/" data-id="cj0gujfu60009swo0vv32mbw0" class="article-share-link">分享</a>
+      <a data-url="https://jessionlin.github.io/2017/02/28/hexo-gitpage/" data-id="cjhc05366000bckw8jxkhd20q" class="article-share-link">分享</a>
       
         <a href="https://jessionlin.github.io/2017/02/28/hexo-gitpage/#ds-thread" class="article-comment-link">留言</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-  
-</article>
-
-
-
-  
-    <article id="post-markdown-基本用法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/27/markdown-基本用法/" class="article-date">
-  <time datetime="2017-02-27T08:45:41.000Z" itemprop="datePublished">2017-02-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/markdown-基本用法/">markdown 基本用法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="一、标题文字图片"><a href="#一、标题文字图片" class="headerlink" title="一、标题文字图片"></a>一、标题文字图片</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h3><p>有三种方式表示标题：</p>
-<ul>
-<li>1：’#’在文字前表示一级标题、</li>
-<li>2：’##’在文字前表示二级标题、</li>
-<li>3：’###’在文字前表示三级标题<br>注：根据‘#’的数目可以判断文字以‘H1’到‘H2’哪一个输出<h3 id="2-文字"><a href="#2-文字" class="headerlink" title="2.文字"></a>2.文字</h3></li>
-<li>1：’<em> [num]’表示无序列表的列（也可使用加号或者减号），其中”</em> “后面必须要带有一个空格，后可接序号或者什么都不添加，如果在列表内添加引用，就要使用’&gt;’并需要缩进</li>
-<li>2：文字前后均添加一个’*’表示斜体</li>
-<li>3：文字前后添加两个’*’表示加粗</li>
-<li>4：’1.’表示有序列表的列，之后添加用来编号的方式</li>
-<li>5:markdown中的链接有两种方式，分别为内联方式和引用方式<br>  1.a:内联方式：This is an <a href="http://example.com/" target="_blank" rel="external">example link</a>.<br>  2.b:引用方式：This is another <a href="http://google.com/" title="Google" target="_blank" rel="external">link</a>.</li>
-</ul>
-<ul>
-<li>6:引用在其前添加’&gt;’，例如：<blockquote>
-<p>这是个引用</p>
-</blockquote>
-</li>
-<li>7：底线用的是一行’-‘或’=’</li>
-</ul>
-<h1 id="———————"><a href="#———————" class="headerlink" title="———————-"></a>———————-</h1><h3 id="3-图片"><a href="#3-图片" class="headerlink" title="3.图片"></a>3.图片</h3><p>1.a:内联方式：<img src="http://om4k2r3sl.bkt.clouddn.com/1.jpg" alt="&quot;title&quot;" title="Title"></p>
-<h5 id="alt-text-photopath-photoname"><a href="#alt-text-photopath-photoname" class="headerlink" title="![alt text] (photopath photoname)"></a><em><em>![alt text] (photopath photoname)</em></em></h5><h6 id="注：photopath不要添加引号"><a href="#注：photopath不要添加引号" class="headerlink" title="注：photopath不要添加引号"></a>注：photopath不要添加引号</h6><p>2.b:引用方式：<img src="http://om4k2r3sl.bkt.clouddn.com/2.jpg" alt="alt text" title="Title"></p>
-<h5 id="alt-text-photoid"><a href="#alt-text-photoid" class="headerlink" title="![alt text] [photoid] "></a><em><em>![alt text] [photoid] </em></em></h5><h5 id="photoid-photopath-photoname"><a href="#photoid-photopath-photoname" class="headerlink" title="[photoid]: (photopath photoname)"></a><em><em>[photoid]: (photopath photoname)</em></em></h5><h1 id="二、表格"><a href="#二、表格" class="headerlink" title="二、表格"></a>二、表格</h1><p>表格的每一列需要用‘|’分隔开，表头与表格以‘|—–:|’分隔，例如:<br>“| <em>Year</em> | <em>Temperature (low)</em> | <em>Temperature (high)</em> |<br>|——–|:——————–:|———————|<br>| 1900 | -10 | 25 |<br>| 1910 | -15 | 30 |<br>| 1920 | -10 | 32 |”</p>
-<table>
-<thead>
-<tr>
-<th><em>Year</em></th>
-<th style="text-align:center"><em>Temperature (low)</em></th>
-<th><em>Temperature (high)</em></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1900</td>
-<td style="text-align:center">-10</td>
-<td>25</td>
-</tr>
-<tr>
-<td>1910</td>
-<td style="text-align:center">-15</td>
-<td>30</td>
-</tr>
-<tr>
-<td>1920</td>
-<td style="text-align:center">-10</td>
-<td>32</td>
-</tr>
-</tbody>
-</table>
-<h1 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h1><p>1.a：代码块<br>这里用’’’ ‘’’来包含多行代码：<br>‘’‘</p>
-<p></p><p>code here</p><p></p>
-<p></p><h2>Javascript</h2><br>’‘’<p></p>
-<p>2.b:代码高亮<br>在上面的代码块语法基础上，在第一组’‘’后添加代码的语言，如<code>JavaScript</code>或<code>js</code>即可将代码标记为JavaScript：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;load&apos;,function()&#123;</div><div class="line">	console.log(&apos;window loaded);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>3.c:标记代码<br>如果要标记一小段行内程序代码，可以用反引号把它包起来（‘’）<br>this is a <code>paragraph</code> of code.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jessionlin.github.io/2017/02/27/markdown-基本用法/" data-id="cj0gujftb0007swo0luvhlqh6" class="article-share-link">分享</a>
-      
-        <a href="https://jessionlin.github.io/2017/02/27/markdown-基本用法/#ds-thread" class="article-comment-link">留言</a>
       
       
       
@@ -1018,7 +975,7 @@ k. *package.json*文件在node中已介绍
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页&raquo;</a>
   </nav>
 </section>
            
@@ -1041,6 +998,10 @@ k. *package.json*文件在node中已介绍
       <ul>
         
           <li>
+            <a href="/2018/05/18/Octave基本用法/">Octave基本用法</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/19/基本选择器语法/">基本选择器语法</a>
           </li>
         
@@ -1054,10 +1015,6 @@ k. *package.json*文件在node中已介绍
         
           <li>
             <a href="/2017/03/15/PS选区/">PS选区</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/11/PS学习前言/">PS学习前言</a>
           </li>
         
       </ul>
@@ -1081,7 +1038,7 @@ k. *package.json*文件在node中已介绍
   
   <div class="outer">
     <div id="footer-left">
-      &copy; 2014 - 2017 jessionlin&nbsp;|&nbsp;
+      &copy; 2014 - 2018 jessionlin&nbsp;|&nbsp;
       主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">

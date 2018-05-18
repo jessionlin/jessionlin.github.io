@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Octave基本用法 | Jessionlin&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基本函数用法
+
+rand(n,m)/randn(n,m)：rand函数随机生成n行m列大小范围在0到1之间的随机数，randn函数按照高斯分布生成n行m列的随机数。
+eye(n)：生成行列数均为n的单位矩阵
+ones(n,m)/zeros(n,m)：ones生成n行m列元素均为1的矩阵，zeros生成n行m列元素均为0的矩阵
+PS1(string)：改变命令行前导符号
+size(A,[N])，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Octave基本用法">
+<meta property="og:url" content="https://jessionlin.github.io/2018/05/18/Octave基本用法/index.html">
+<meta property="og:site_name" content="Jessionlin's blog">
+<meta property="og:description" content="一、基本函数用法
+
+rand(n,m)/randn(n,m)：rand函数随机生成n行m列大小范围在0到1之间的随机数，randn函数按照高斯分布生成n行m列的随机数。
+eye(n)：生成行列数均为n的单位矩阵
+ones(n,m)/zeros(n,m)：ones生成n行m列元素均为1的矩阵，zeros生成n行m列元素均为0的矩阵
+PS1(string)：改变命令行前导符号
+size(A,[N])，">
+<meta property="og:updated_time" content="2018-05-18T13:30:23.703Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Octave基本用法">
+<meta name="twitter:description" content="一、基本函数用法
+
+rand(n,m)/randn(n,m)：rand函数随机生成n行m列大小范围在0到1之间的随机数，randn函数按照高斯分布生成n行m列的随机数。
+eye(n)：生成行列数均为n的单位矩阵
+ones(n,m)/zeros(n,m)：ones生成n行m列元素均为1的矩阵，zeros生成n行m列元素均为0的矩阵
+PS1(string)：改变命令行前导符号
+size(A,[N])，">
+  <meta name="google-site-verification" content="LIm5dw-rET7nnNJpJvLM1kkBCSKpp0i4KlqU548TN3o" />
+  
+    <link rel="alternate" href="/atom.xml" title="Jessionlin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261497542'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261497542' type='text/javascript'%3E%3C/script%3E"));</script>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jessionlin.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jessionlin&#39;s blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Octave基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/18/Octave基本用法/" class="article-date">
+  <time datetime="2018-05-18T13:29:42.000Z" itemprop="datePublished">2018-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Octave基本用法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>一、基本函数用法</p>
+<ol>
+<li>rand(n,m)/randn(n,m)：rand函数随机生成n行m列大小范围在0到1之间的随机数，randn函数按照高斯分布生成n行m列的随机数。</li>
+<li>eye(n)：生成行列数均为n的单位矩阵</li>
+<li>ones(n,m)/zeros(n,m)：ones生成n行m列元素均为1的矩阵，zeros生成n行m列元素均为0的矩阵</li>
+<li>PS1(string)：改变命令行前导符号</li>
+<li>size(A,[N])，length(A)：对于size函数，A为一个矩阵，省略第一个参数时，函数返回一个数组[n,m]，其中n为A的行数，m为A的列数；如果添加了第二个参数，则第二个参数表示矩阵的维度；对于length函数，A为一个矩阵，函数返回最大维度的大小</li>
+<li>disp()：显示变量的值</li>
+<li>pwd：显示当前路径</li>
+<li>load：load命令用于加载数据文件，可以键入load XX.dat导入文件，也可以键入load(‘XX.dat’)导入文件</li>
+<li>who/whos：who查询工作区内的变量名称，whos查询工作区内的详细信息</li>
+<li>clear：清除某一个变量，即 clear X，清除变量X；save hello.txt A -ascii 将A矩阵以ASCII格式存储在hello.txt中；如果没有跟变量，则清除全部；clc清屏</li>
+<li>save file A：将A矩阵存储到文件file中</li>
+<li>矩阵简单操作：B= A(n:m)表示将矩阵A的第n行到第m行的值赋值给矩阵B，其他维度方法同理,’:’表示所有的元素，例A([1 3],:)表示将矩阵A第一行与第三行的所有元素显示出来。A = [A , B ]表示将矩阵B扩展到原矩阵A的右部，同时将所得到的新矩阵重新赋给A；A(:)；表示将A中的所有元素按照列的方向依次形成一个新的列向量</li>
+<li>矩阵的简单计算：加减乘不再详细叙述；‘.*’表示矩阵对应位置上的数值相乘，并将结果附到新矩阵的相同位置上，其中的’.’表示对矩阵元素来进行操作，而不是对矩阵的整体进行操作</li>
+<li>数学计算函数(单一参数）：log(对数，底为e)、exp(指数函数，底为e)、abs(绝对值)、max(最大值)、min(最小值)、sum(求和)、prod(乘)、floor(向下取整)、ceil(向上取整)</li>
+<li>数学计算函数(多个参数)：max(A,[],1);其中A为矩阵，1表示每一列比较，如果替换为2则表示每一行的比较</li>
+<li>其他简单函数：find(operation)，输出满足operation的值的索引，二维数组会有两个返回值[r,c]，即满足operation的值的索引为r作为行，c作为列；magic(n)：生成一个nXn的矩阵，同时，每个元素的值为1到nXn，同时，每行、每列以及对角线上元素的求和相等；flipud()将矩阵上下翻转，pinv(A)，计算矩阵A的单位矩阵</li>
+<li>简单做图：plot(x,y)以x为横坐标，y为纵坐标作图，可以添加第三个参数，表示图像的类型，如添加’r’，表示颜色为红色，还有其他的类型；如果想要把多个图画在同一个图像中，则在两个作图语句之间添加hold on 语句；(分为x与y轴的属性设置这里仅仅显示x的)，xlabel(xString)，xString表示x轴的名，legend(string1 , string2 ……)，为每条曲线命名，按照作图的顺序设置各个命名，title()设置图表的名称，可以用print -dpng ‘file.png’将图表保存为png图片；键入close命令，可以将当前打开的图表关闭掉；在使用plot函数前使用figure(n)，并且保证每次使用plot函数前均使用不同的n值，可以同时开启多个图表窗口，而不是像之前一样用新的图表覆盖旧的图表；subplot(1,2,1)，它的作用是将绘图细分为前两个参数为1的两个网格，并开始访问第一个元素。即把图纸分为1 X 2的网格，画图时使用第一个网格；axis([x1,x2,y1,y2])设置刻度值，其中[x1,x2]为横轴的刻度范围，[y1,y2]为纵轴的刻度范围;clf可以清楚图表的内容；imagesc(A)为矩阵A绘制一个彩图矩阵，不同的值对应着不同的颜色深度；colorbar命令显示出颜色代表的数值范围；colormap [color]表示为图像设置一个与color对应的色系，可选的颜色取值用help查询即可</li>
+<li>控制语句：循环语句：for结构如下：</li>
+</ol>
+<blockquote>
+<p>for i=1:10,<br>  v(i) = 2^i;<br>end;</p>
+</blockquote>
+<p>也可以这样写:</p>
+<blockquote>
+<p>indices = 1:10;<br>for i=indices,<br>  v(i) = 2^i;<br>end;</p>
+</blockquote>
+<p>其本质上都是一样的，</p>
+<p>while语句结构如下：</p>
+<blockquote>
+<p>i = 1;<br>while i &lt;= 5,<br>   v(i) = 100;<br>​     i = i + 1;<br>end;</p>
+</blockquote>
+<p>while 、break、if同时使用时的结构：</p>
+<blockquote>
+<p>i = 1;<br>while true,<br>   v(i) = 999;<br>   i = i + 1;<br>​    if  i == 6,<br>​       break;<br>​     end;<br>end;</p>
+</blockquote>
+<p>if-else语句:</p>
+<blockquote>
+<p>if v(i) == 1,<br>   disp(‘One’);<br>elseif v(i) == 2,<br>​    diso(‘Two’);<br>else<br>​    disp(‘Not one or two’);<br>end;</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jessionlin.github.io/2018/05/18/Octave基本用法/" data-id="cjhc0535x0002ckw8o5g70fmu" class="article-share-link">分享</a>
+      
+        <a href="https://jessionlin.github.io/2018/05/18/Octave基本用法/#ds-thread" class="article-comment-link">留言</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/19/基本选择器语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">基本选择器语法</div>
+    </a>
+  
+</nav>
+
+  
+  
+    <! -- ��Ӿ���ͼ�� -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="����"></a>
+        <span class="donate_txt">
+           &uarr;<br>
+           感谢对作者工作的大力支持，以下两个二维码中，左边的是支付宝二维码，右边的是微信二维码
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- ֧��������ͼ�� -->
+        <img src="http://om4k2r3sl.bkt.clouddn.com/zhifubaos.png" alt="֧��������"> 
+        <!-- ΢�Ŵ���ͼ�� -->
+        <img src="http://om4k2r3sl.bkt.clouddn.com/wechats.png" alt="΢�Ŵ���">  
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- ��Ӿ���ͼ�� -->
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div id=="ds-thread" class="ds-thread" data-thread-key="2018/05/18/Octave基本用法/" data-title="Octave基本用法" data-url="https://jessionlin.github.io/2018/05/18/Octave基本用法/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/18/Octave基本用法/">Octave基本用法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/基本选择器语法/">基本选择器语法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/CSS3选择器/">CSS3选择器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/PS蒙版/">PS蒙版</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/PS选区/">PS选区</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 jessionlin&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;1754317747@qq.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"jessionlin1"};
+      </script>
+      <script src="/duoshuo/embed.js"></script>
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>
